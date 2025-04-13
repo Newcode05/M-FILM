@@ -19,7 +19,7 @@ function Discription() {
                     paddingLeft: '35px',
                     borderRadius: '50px',
                     backgroundColor: 'white',
-                    backgroundImage: 'url("/public/Poster/play-regular-36.png")',
+                    backgroundImage: 'url("/Poster/play-regular-36.png")',
                     backgroundSize: '24px',
                     backgroundPosition: 'left 10px center',
                     backgroundRepeat: 'no-repeat',

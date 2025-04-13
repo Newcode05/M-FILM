@@ -6,7 +6,7 @@ function Trailer() {
     return (
         <div className={styles['trailer-contain']}>
             <video className={styles['trailer']} src=""></video>
-            <img className={styles['poster']} src="/public/Img-Poster/mavkar-3.jpg" alt="poster" />
+            <img className={styles['poster']} src="/Img-Poster/mavkar-3.jpg" alt="poster" />
             <Button
                 customStyle={{
                     position: "absolute",
@@ -16,7 +16,7 @@ function Trailer() {
                     paddingLeft: "35px",
                     fontSize: "1.3rem",
                     color: "white",
-                    backgroundImage: 'url("/public/Poster/hot-solid-36.png")',
+                    backgroundImage: 'url("/Poster/hot-solid-36.png")',
                     backgroundSize: "24px",
                     backgroundRepeat: "no-repeat",
                     backgroundPosition: "left 10px center",

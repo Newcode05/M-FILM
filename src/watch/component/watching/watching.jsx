@@ -70,14 +70,14 @@ function Watching() {
                     <div ref={watchRef} className={styles['watching']}>
                         <video
                             ref={videoRef}
-                            src="/public/FIlm/Mavka.The.Forest.Song.2023.DUBBED.1080p.BluRay.x264.AAC5.1-[YTS.MX].mp4"
+                            src="/Movie/Mavka.mp4"
                             className={styles['video']}
                             muted
                             onTimeUpdate={() => onVideoPlay()}
                             onLoadedMetadata={(e) => videoDuraction.current = e.target.duration}
                         ></video>
                         {!interact ? <img
-                            src="/public/Img-Poster/mavkar-3.jpg"
+                            src="/Img-Poster/mavkar-3.jpg"
                             alt="poster"
                             className={styles['poster']} /> : null}
                         {!interact ? <div className={styles['button-interact']} onClick={interactHandle}></div> : null}

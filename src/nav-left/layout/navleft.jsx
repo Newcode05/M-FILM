@@ -30,7 +30,7 @@ function NavLeft() {
             { src: '#', 'element': 'Profile', 'bg': '/Navleft/heart-regular-36.png', },
         ],
         [
-            { src: '/shop', 'element': 'Shop', 'bg': '/public/Navleft/store-regular-36 (1).png', }
+            { src: '/shop', 'element': 'Shop', 'bg': '/Navleft/store-regular-36 (1).png', }
         ],
         [
             { src: '#', 'element': 'Setting', 'name': 'icon-setting', 'bg': '/Navleft/cog-regular-36.png', },
