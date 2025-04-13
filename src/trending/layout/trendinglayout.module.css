@@ -1,9 +1,11 @@
 .trending-layout {
+    box-sizing: border-box;
     position: relative;
     width: 100%;
     height: auto;
     -webkit-user-select: none;
     user-select: none;
+    border: 1px solid white;
 
 }
 
@@ -24,11 +26,18 @@
 }
 
 .trending-list {
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     gap: 20px;
+}
+
+@media (max-width:780px) {
+    .trending-list {
+        gap: 10px;
+    }
 }
 
 @media (min-width:769px) and (max-width:1024px) {

@@ -1,4 +1,5 @@
 .suggest-layout {
+    box-sizing: border-box;
     position: relative;
     width: 100%;
     height: auto;
@@ -16,4 +17,10 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 20px;
+}
+
+@media (min-width:768px) and (max-width:910px) {
+    .list {
+        gap: 10px;
+    }
 }

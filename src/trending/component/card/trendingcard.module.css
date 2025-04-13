@@ -24,9 +24,10 @@
 
 @media (max-width:768px) {
     .trending-card {
-        flex: 0 0 calc((100% - 20px) /2);
-        width: calc((100% - 20px) /2);
+        flex: 0 0 calc((100% - 20px) /3);
+        width: calc((100% - 20px) /3);
         height: 250px;
+        border:1px solid white;
     }
 }
 
