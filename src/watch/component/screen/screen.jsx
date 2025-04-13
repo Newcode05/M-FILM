@@ -5,7 +5,7 @@ function Screen() {
     const { screen, setScreen } = useContext(ScreenContext);
     return (
         <div
-            style={{ backgroundImage: `url(${screen ? '/public/Control/exit-fullscreen-regular-48.png' : '/public/Control/fullscreen-regular-48.png'})` }}
+            style={{ backgroundImage: `url(${screen ? '/Control/exit-fullscreen-regular-48.png' : '/Control/fullscreen-regular-48.png'})` }}
             className={styles["button-screen"]} onClick={() => setScreen(prev => !prev)} >
 
         </div >

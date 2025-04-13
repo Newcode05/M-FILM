@@ -4,7 +4,7 @@ function TrendingCard({ card }) {
     return (
         <div className={styles['trending-card']}>
             <img className={styles['poster']} src={card.poster} alt="" />
-            <img className={styles['medal']} src="/public/Trending/medal-regular-36.png" alt="" />
+            <img className={styles['medal']} src="/Trending/medal-regular-36.png" alt="" />
             <TrendingInfor infor={card.infor} />
         </div>
     )
