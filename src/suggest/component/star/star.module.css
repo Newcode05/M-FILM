@@ -1,0 +1,49 @@
+.star-contain {
+    box-sizing: border-box;
+    position: relative;
+    width: 120px;
+    height: 20px;
+    z-index: 10;
+    background-color: black;
+    overflow: hidden;
+}
+
+.star-wrapper,
+.star {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.star-wrapper {
+    overflow: hidden;
+    z-index: 40;
+
+}
+
+.star {
+    z-index: 30;
+}
+
+.item-wrapper,
+.item-star {
+    flex: 0 0 20px;
+    height: 20px;
+    background-position: center;
+    background-size: 20px;
+    background-repeat: no-repeat;
+}
+
+.item-star {
+    background-image: url("/public/Star/star-solid-36.png");
+}
+
+.item-wrapper {
+    background-image: url("/public/Star/star-solid-24\ \(1\).png");
+}

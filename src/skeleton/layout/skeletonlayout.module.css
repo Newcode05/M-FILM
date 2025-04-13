@@ -1,0 +1,29 @@
+.skeleton-contain {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 100%;
+}
+
+.skeleton-layout {
+    box-sizing: border-box;
+    width: 350px;
+    height: 200px;
+    border-radius: 10px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 25%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.2) 75%);
+    background-size: 200% 100%;
+    overflow: hidden;
+    animation: skeleton 2s linear 1s infinite backwards;
+}
+
+@keyframes skeleton {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}

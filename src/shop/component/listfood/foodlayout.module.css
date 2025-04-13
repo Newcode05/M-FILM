@@ -1,0 +1,21 @@
+.food-layout {
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+@media (max-width:480px) {
+    .food-layout {
+        gap: 5px;
+    }
+
+
+}

@@ -1,0 +1,320 @@
+.ticket-card {
+    box-sizing: border-box;
+    width: 400px;
+    height: 270px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    -webkit-user-select: none;
+    user-select: none;
+    border: 10px solid rgba(181, 217, 36, 0.4);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.ticket-infor {
+    box-sizing: border-box;
+    position: relative;
+    flex: 0 0 65%;
+    width: 65%;
+    height: 100%;
+    background-color: black;
+    padding-left: 20px;
+    padding-right: 15px;
+}
+
+.ticket-poster {
+    box-sizing: border-box;
+    flex: 0 0 35%;
+    width: 35%;
+    height: 100%;
+}
+
+.poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.track-contain {
+    position: absolute;
+    top: 22px;
+    right: 0px;
+    transform: translateX(50%);
+    width: 5px;
+    height: calc(100% - 44px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 50;
+}
+
+.track-contain>div:nth-child(1) {
+    flex: 0 0 5%;
+}
+
+.track-contain>div:last-child {
+    flex: 0 0 5%;
+}
+
+.track {
+    flex: 0 0 10%;
+    width: 5px;
+    border-radius: 20px;
+    background-color: rgba(181, 217, 36, 1);
+}
+
+.circle-1,
+.circle-2 {
+    position: absolute;
+    margin: 0px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(181, 217, 36, 0.438);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: 50;
+}
+
+.circle-1 {
+    top: 0px;
+    right: 0px;
+    transform: translate(50%, -50%);
+}
+
+.circle-2 {
+    bottom: 0px;
+    right: 0px;
+    transform: translate(50%, 50%);
+}
+
+.name {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+}
+
+.date-time {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5rem;
+}
+
+.date-name,
+.time-name {
+    color: gray;
+    font-size: 1.2rem;
+}
+
+.time-value {
+    font-family: 'DIN Condensed', sans-serif;
+}
+
+.date-value {
+    font-family: "Roboto", sans-serif;
+}
+
+.hall-seats {
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-family: "Roboto", sans-serif;
+}
+
+.hall,
+.seats {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: gray;
+    font-size: 1.4rem;
+    overflow: hidden;
+}
+
+.hall-name,
+.hall-value {
+    position: absolute;
+    top: 0px;
+    width: max-content;
+    height: 100%;
+    background-color: black;
+}
+
+.hall-name {
+    padding-right: 5px;
+    left: 0px;
+}
+
+.hall-value {
+    padding-left: 5px;
+    right: 0px;
+    color: white;
+}
+
+.seats-name,
+.seats-value {
+    position: absolute;
+    top: 0px;
+    width: max-content;
+    height: 100%;
+    background-color: black;
+    font-family: "Roboto", sans-serif;
+}
+
+.seats-name {
+    left: 0px;
+    padding-right: 5px;
+    color: gray;
+}
+
+.seats-value {
+    right: 0px;
+    padding-left: 5px;
+    color: white;
+}
+
+.cash {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    font-family: "Roboto", sans-serif;
+}
+
+.price {
+    color: white;
+    font-size: 30px;
+}
+
+.button-buy {
+    background-color: rgba(181, 217, 36, 1);
+    font-size: 1.5rem;
+}
+
+@media (max-width:480px) {
+    .ticket-card {
+        flex: none;
+        width: 100%;
+        height: 200px;
+    }
+
+    .name {
+        font-size: 2rem;
+    }
+
+    .date-time {
+        font-size: 1.1rem;
+    }
+
+    .hall {
+        font-size: 1rem;
+    }
+
+    .seats {
+        font-size: 1rem;
+    }
+
+    .cash {
+        bottom: 5px;
+    }
+
+    .price {
+        font-size: 2rem;
+    }
+
+    .button-buy {
+        font-size: 1rem;
+    }
+
+}
+@media (min-width:481px) and (max-width:690px) {
+    
+}
+@media (min-width:690px) and (max-width:768px) {
+    .ticket-card {
+        min-width: 200px;
+        aspect-ratio: 16/9;
+        min-height: 250px;
+        height: auto;
+    }
+    .name {
+        font-size: 2.5rem;
+    }
+
+    .date-time {
+        font-size: 1.4rem;
+    }
+
+    .hall {
+        font-size: 1.2rem;
+    }
+
+    .seats {
+        font-size: 1.2rem;
+    }
+
+    .cash {
+        bottom: 5px;
+    }
+
+    .price {
+        font-size: 2.2rem;
+    }
+
+    .button-buy {
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width:781px) and (max-width:1024px) {
+    .ticket-card {
+        flex: none;
+        width: 350px;
+        height: 220px;
+    }
+
+    .name {
+        font-size: 2.2rem;
+    }
+
+    .date-time {
+        font-size: 1.5rem;
+    }
+
+    .hall {
+        font-size: 1.2rem;
+    }
+
+    .seats {
+        font-size: 1.2rem;
+    }
+
+    .cash {
+        bottom: 10px;
+    }
+
+    .price {
+        font-size: 1.5rem;
+    }
+
+    .button-buy {
+        font-size: 1.2rem;
+    }
+}

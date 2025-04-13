@@ -1,0 +1,67 @@
+.sort-contain {
+    box-sizing: border-box;
+    position: relative;
+    flex: 0 0 80px;
+    width: 80px;
+    height: 40px;
+    border-radius: 50px;
+    transition: all 0.3s linear;
+    font-size: 1.35rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    z-index: 30;
+}
+
+.sort-wrapper {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 40px;
+    width: 100%;
+    border-radius: 50px;
+    background-color: rgba(100, 100, 100, 0.5);
+    transition: all 0.2s linear;
+}
+
+.sort-wrapper div {
+    margin: 0px;
+    background-color: transparent;
+    z-index: 40;
+}
+
+.sort-selected {
+    box-sizing: border-box;
+    height: 40px;
+    width: 100%;
+    padding-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-image: url('/public/Header/chevron-down-regular-36.png');
+    background-position: center right 10px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    z-index: 40;
+}
+
+.list-sort {
+    height: 120px;
+    width: 100%;
+    background-color: transparent;
+}
+
+.list-sort>div {
+    padding-left: 5px;
+    height: 40px;
+    width: 100%;
+    color: white;
+}
+
+@media (max-width:768px) {
+    .sort-contain {
+        display: none;
+    }
+}

@@ -1,0 +1,52 @@
+.button-buy {
+    box-sizing: border-box;
+    position: relative;
+    padding: 10px 15px;
+    width: max-content;
+    height: auto;
+    color: black;
+    border: 1px solid black;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.button-buy:hover {
+    color: transparent;
+}
+
+.button-buy:hover .shop-icon {
+    transform: translate(-50%, -50%);
+}
+.button-buy:hover .shirt-icon{
+    transform: translate(-50%, -50%) scale(0.2);
+}
+.shop-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-350%, -50%);
+    width: 24px;
+    height: 24px;
+    background-image: url('/public/Shop/Buy/cart-regular-36.png');
+    background-size: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all linear 0.3s;
+}
+
+.shirt-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -150%);
+    width: 24px;
+    height: 24px;
+    background-image: url('/public/Shop/Buy/coupon-solid-36\ \(1\).png');
+    background-size: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform-origin: center;
+    transition: all linear 0.3s;
+    transition-delay: 0.5s;
+
+}

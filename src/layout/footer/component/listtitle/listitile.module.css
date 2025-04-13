@@ -1,0 +1,16 @@
+.document-contain {
+    box-sizing: border-box;
+    flex: none;
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.document-contain div {
+    width: max-content;
+    margin: 0;
+    margin-bottom: 10px;
+}

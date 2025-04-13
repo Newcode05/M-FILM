@@ -1,0 +1,24 @@
+.button {
+    box-sizing: border-box;
+    padding: 0;
+    width: max-content;
+    height: auto;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.button-click {
+    box-sizing: border-box;
+    display: block;
+    padding: 10px 15px;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: transparent;
+    text-decoration: none;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    background-color: rgba(100, 100, 100, 0.5);
+}

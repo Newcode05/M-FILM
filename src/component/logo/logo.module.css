@@ -1,0 +1,18 @@
+.logo {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-image: url('/public/Logo/magento-logo-36.png');
+    background-size: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(181, 217, 26, 0.4);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    z-index: 9990;
+    cursor: pointer;
+}

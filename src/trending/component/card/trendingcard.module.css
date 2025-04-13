@@ -1,0 +1,39 @@
+.trending-card {
+    box-sizing: border-box;
+    position: relative;
+    flex: 0 0 220px;
+    height: 280px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.poster {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.medal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+
+@media (max-width:768px) {
+    .trending-card {
+        flex: 0 0 calc((100% - 20px) /2);
+        width: calc((100% - 20px) /2);
+        height: 250px;
+    }
+}
+
+@media (min-width:769px) and (max-width:1024px) {
+    .trending-card {
+        flex:none;
+        max-width: 200px;
+        height: 250px;
+    }
+}

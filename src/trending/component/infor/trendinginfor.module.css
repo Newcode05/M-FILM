@@ -1,0 +1,102 @@
+.trending-infor {
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    bottom: 15px;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 100px;
+    padding-left: 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    -webkit-user-select: none;
+    user-select: none;
+    color: white;
+    font-family: "Roboto", sans-serif;
+}
+
+.name {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.bookmark {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    background-image: url('/public/Trending/bookmark-regular-36.png');
+    background-size: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+
+.bookmark:hover {
+    transform: scale(1.2);
+}
+
+.details {
+    font-size: 13px;
+
+}
+
+.infor {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.star,
+.view {
+    height: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+
+}
+
+.star::before,
+.view::before {
+    width: 15px;
+    height: 15px;
+    background-position: center;
+    background-size: 15px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.star::before {
+    content: "";
+    background-image: url("/Trending/star-solid-36.png");
+}
+
+.view::before {
+    content: "";
+    background-image: url("/Trending/hot-solid-36.png");
+}
+
+.time {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .trending-infor {
+        max-width: 200px;
+    }
+}
+
+@media (min-width:768px) and (max-width:1024px) {
+    .trending-infor {
+        max-width: 250px;
+    }
+}

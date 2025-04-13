@@ -1,0 +1,84 @@
+.card-contain {
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.card-contain>div {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 0px;
+    margin-bottom: 5px;
+    z-index: 20;
+
+}
+
+.card-contain a {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-left: 80px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 200;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(255, 255, 255, 0.9);
+
+}
+
+.card-contain a:hover {
+    color: rgba(25, 238, 82, 0.5);
+}
+
+.icon {
+    position: absolute;
+    top: 50%;
+    left: 35px;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    z-index: 40;
+
+}
+
+a.selected {
+    color: rgba(25, 238, 82, 0.5);
+}
+
+.card-contain>hr {
+    position: absolute;
+    left: 50%;
+    height: 0px;
+    width: calc(100% - 60px);
+    margin: 0px;
+    margin-top: 10px;
+    transform: translateX(-50%);
+    border: none;
+    border-bottom: 0.5px solid rgba(100, 100, 100, 1);
+}
+
+.icon-setting {
+    animation: rotate 3s linear 0s infinite forwards;
+    animation-play-state: paused;
+}
+
+.card-contain>div>a:hover>.icon-setting {
+    animation-play-state: running;
+}
+
+@keyframes rotate {
+    from {
+        transform: translateY(-50%) rotateZ(0deg);
+    }
+
+    to {
+        transform: translateY(-50%) rotateZ(360deg);
+    }
+}
