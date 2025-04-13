@@ -7,10 +7,15 @@ function Loading() {
     const { loading, setLoading } = useContext(LoadingContext);
     const [loadStep, setLoadStep] = useState(0);
     const [display, setDisplay] = useState(true);
+    const [src, setSrc] = useState(null);
     const timeRef = useRef(null);
     const url = useLocation();
-    const src = url.pathname;
-    console.log(src);
+    useEffect(() => {
+        console.log(loading)
+    }, [loading]);
+    useEffect(() => {
+        setSrc(url.pathname);
+    }, [url.pathname]);
     useEffect(() => {
         setDisplay(false);
         setTimeout(() => {
@@ -23,9 +28,7 @@ function Loading() {
         timeRef.current = setInterval(() => {
             setLoadStep(prev => {
                 if (prev > 100) {
-                    setDisplay(false);
                     clearInterval(timeRef.current);
-                    setLoading(false);
                     console.log('clear 2');
                     return 0;
                 }
@@ -36,6 +39,13 @@ function Loading() {
 
         return () => timeRef.current ? clearInterval(timeRef.current) : 0
     }, [src]);
+    useEffect(() => {
+        if (loadStep > 100) {
+            setLoading(false);
+            setDisplay(false)
+            clearInterval(timeRef.current);
+        }
+    }, [loadStep]);
     return (
         <div className={styles['loading-contain']}>
             <div style={{ transform: `scaleX(${loadStep / 100})`, opacity: display ? '1' : '0' }} className={styles['loading']}></div>

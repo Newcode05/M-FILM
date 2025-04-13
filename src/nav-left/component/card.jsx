@@ -11,7 +11,7 @@ function Card({ card = [], end = true, customClass }) {
 
             {card.length > 0 ? card.map((child, indexCard) =>
                 <div key={indexCard} >
-                    <Link className={`${styles[indexSelect == child.src ? "selected" : ""]}`} to={child.src} onClick={() => { setIndexSelect(child.src), setLoading(false) }}>
+                    <Link className={`${styles[indexSelect == child.src ? "selected" : ""]}`} to={child.src} onClick={() => { setIndexSelect(child.src); setLoading(true) }}>
                         <img className={`${styles['icon']} ${styles[child.name]}`} src={child.bg} alt="icon-nav" />
                         {child.element}</Link>
                 </div>
