@@ -1,19 +1,17 @@
 import { useState, useRef, useEffect } from "react";
 import styles from "./switch.module.css"
-function Switch({ size = "md", count = 4, customStyle, index, setIndex }) {
-    let direction = useRef(null);
+function Switch({ size = "md", count = 4, customStyle, index, setIndex, direction, PreDis,setDirection }) {
     const runRef = useRef(null);
     const widthDot = 8;
     const gap = 20;
     let time;
     useEffect(() => {
-        console.log('a');
         if (runRef.current) {
-            if (direction.current == 'right') {
-                runRef.current.style.width = "36px";
+            if (direction == 'right') {
+                console.log('right');
+                runRef.current.style.width = `${8 + Math.abs(PreDis.current - index) * 28}px`;
                 clearTimeout(time);
                 time = setTimeout(() => {
-                    console.log('a');
                     if (runRef.current) {
                         runRef.current.style.width = "8px";
                         runRef.current.style.left = `${16 + index * (gap + widthDot)}px`;
@@ -21,11 +19,13 @@ function Switch({ size = "md", count = 4, customStyle, index, setIndex }) {
                     clearTimeout(time);
                 }, 300);
             }
-            else if (direction.current == 'left') {
+            else if (direction == 'left') {
+                console.log('left');
                 let left = runRef.current.style.left.split('px');
                 runRef.current.style.right = `${124 - left[0] - 8}px`;
                 runRef.current.style.left = "unset";
-                runRef.current.style.width = "36px";
+                runRef.current.style.width = `${8 + Math.abs(PreDis.current - index) * 28}px`;
+                console.log(runRef.current.style.width);
                 clearTimeout(time);
                 time = setTimeout(() => {
                     if (runRef.current) {
@@ -40,15 +40,15 @@ function Switch({ size = "md", count = 4, customStyle, index, setIndex }) {
     }, [index]);
     const clickHandle = (a) => {
         setIndex(prev => {
+            PreDis.current = prev;
             if (a > prev) {
-                direction.current = 'right';
-
+                setDirection('right');
             }
             else if (a < prev) {
-                direction.current = 'left';
+                setDirection('left');
                 if (prev == 0) runRef.current.left = "16px";
             }
-            else { direction.current = 'null'; }
+            else { setDirection('null') }
             return a;
         });
 
