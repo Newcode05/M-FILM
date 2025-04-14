@@ -36,11 +36,12 @@ function SuggestLayout() {
         setIsDown(false);
     }
     const handleMove = (e) => {
+        e.preventDefault();
         if (!isDown) return;
         else {
             const x = e.pageX - containerRef.current.offsetLeft;
-            const scrollX = (x - start) * 1.5;
-            containerRef.current.scrollLeft = scrollLeft - scrollX;
+            const scrollX = (x - start) * 0.5;
+            containerRef.current.scrollLeft = scroll - scrollX;
         }
     }
     return (

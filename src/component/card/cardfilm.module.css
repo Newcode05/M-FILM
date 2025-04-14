@@ -1,0 +1,55 @@
+.card-film {
+    position: relative;
+    box-sizing: border-box;
+    padding: 0;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.card-contain {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.poster {
+    box-sizing: border-box;
+    margin: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-contain:hover>.play {
+    display: block;
+}
+
+.play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-image: url('/public/Control/play-regular-36.png');
+    background-size: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.name {
+    width: max-content;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+}

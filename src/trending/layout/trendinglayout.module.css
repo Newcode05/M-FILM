@@ -5,9 +5,9 @@
     height: auto;
     -webkit-user-select: none;
     user-select: none;
+    overflow: hidden;
 
 }
-
 .trending-title {
     font-size: 2.5rem;
     color: white;
@@ -28,7 +28,11 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     gap: var(--column-gap);
+    overflow: auto;
+}
+.trending-list::-webkit-scrollbar {
+    display: none;
 }

@@ -1,7 +1,7 @@
 .trending-card {
     box-sizing: border-box;
     position: relative;
-    flex: 0 0 calc((100% - calc(var(--column-gap) * calc(var(--column-count) - 1))) / var(--column-count));
+    flex: 0 0 200px;
     aspect-ratio: 3/4;
     border-radius: 5px;
     overflow: hidden;
