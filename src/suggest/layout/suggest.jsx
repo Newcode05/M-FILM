@@ -9,6 +9,7 @@ function SuggestLayout() {
         { 'poster': '/Img-Poster/poster-8.jpg', 'name': '', },
         { 'poster': '/Img-Poster/poster-6.jpg', 'name': '', },
         { 'poster': '/Img-Poster/poster-natra-2.jpg', 'name': '', },
+        { 'poster': '/Img-Poster/poster-disney-the-good-dinosaur.jpeg', 'name': '', },
     ]
     return (
         <section className={styles['suggest-layout']}>
