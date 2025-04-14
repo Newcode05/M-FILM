@@ -1,8 +1,8 @@
 .trending-card {
     box-sizing: border-box;
     position: relative;
-    flex: 0 0 220px;
-    height: 280px;
+    flex: 0 0 calc((100% - calc(var(--column-gap) * calc(var(--column-count) - 1))) / var(--column-count));
+    aspect-ratio: 3/4;
     border-radius: 5px;
     overflow: hidden;
 }
@@ -20,21 +20,4 @@
     width: 24px;
     height: 24px;
     object-fit: cover;
-}
-
-@media (max-width:768px) {
-    .trending-card {
-        flex: 0 0 calc((100% - 20px) /3);
-        width: calc((100% - 20px) /3);
-        height: 250px;
-        border:1px solid white;
-    }
-}
-
-@media (min-width:769px) and (max-width:1024px) {
-    .trending-card {
-        flex:none;
-        max-width: 200px;
-        height: 250px;
-    }
 }
