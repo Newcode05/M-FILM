@@ -105,7 +105,7 @@ main {
 
 @media (min-width:1535px)  {
   :root {
-    --column-count: 6;
+    --column-count: 7;
     --column-gap: 20px;
   }
 }
