@@ -1,15 +1,15 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom'
 import { Header } from './header/layout/head/header'
-import { Logo } from './component/logo/logo'
 import { Home } from './layout/home/home'
 import { Shop } from './shop/layout/shop'
 import { NavLeft } from './nav-left/layout/navleft'
 import { Login } from './Login/component/login/login.jsx'
 import { WatchingLayout } from './watch/layout/watchinglayout'
 import { Footer } from './layout/footer/layout/footer.jsx'
-import './App.css'
 import { Loading } from './loading/loading.jsx'
+import { LazyCard } from './component/lazyloading/lazyloading.jsx'
+import './App.css'
 function LoginLayout() {
   return (
     <>
