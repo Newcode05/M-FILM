@@ -98,14 +98,14 @@ main {
 
 @media (min-width:1279.98px) and (max-width:1534.98px) {
   :root {
-    --column-count: 6;
+    --column-count: 5;
     --column-gap: 20px;
   }
 }
 
 @media (min-width:1535px)  {
   :root {
-    --column-count: 8;
+    --column-count: 6;
     --column-gap: 20px;
   }
 }

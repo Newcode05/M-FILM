@@ -32,8 +32,6 @@ function Layout() {
   };
   return (
     <>
-      {!displayNav ?
-        <Logo customStyle={{ position: 'fixed', top: '20px', left: '25px' }} handleClick={() => setDisplayNav(prev => !prev)} /> : null}
       <Header />
       <NavLeft />
       <Loading />

@@ -2,20 +2,21 @@
     box-sizing: border-box;
     position: fixed;
     top: 0px;
-    left: 300px;
-    width: calc(100% - 300px);
+    left: 25px;
+    width: calc(100% - 50px);
     height: 80px;
-    padding-right: 25px;
+    z-index: 9990;
+}
+
+.search-box {
+    position: absolute;
+    left: 75px;
+    top: 50%;
+    width: calc(100% - 75px);
+    transform: translateY(-50%);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    z-index: 9990;
-}
-@media (max-width:1500px) {
-    .header-contain {
-        left: 100px;
-        width: calc(100% - 100px);
-    }
 }

@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Logo } from "../../../component/logo/logo";
 import { Sort } from "../../component/sort/sort";
 import { Search } from "../../component/search/search";
 import { Notice } from "../../component/notice/notice";
@@ -9,19 +10,23 @@ function Header() {
     const { displayNav, setDisplayNav } = useContext(DisplayNavContext);
     const { isDesktop } = useContext(DesktopContext);
     const headerStyle = isDesktop ? {
-        width: displayNav ? 'calc(100% - 300px)' : 'calc(100% - 100px)',
-        left: displayNav ? '300px' : '100px'
+        width: displayNav ? 'calc(100% - 275px)' : 'calc(100% - 100px)',
+        left: displayNav ? '275px' : '100px'
     } : {
         width: 'calc(100% - 100px)',
         left: '100px'
     };
     return (
-        <div style={headerStyle} className={styles['header-contain']}>
-            <Sort />
-            <Search />
-            <Notice />
-            <User />
+        <div className={styles['header-contain']}>
+            {!displayNav ?
+                <Logo customStyle={{ position: 'absolute', top: '50%', left: '0', transform: 'translateY(-50%)' }} handleClick={() => setDisplayNav(prev => !prev)} /> : null}
 
+            <div style={headerStyle} className={styles['search-box']}>
+                <Sort />
+                <Search />
+                <Notice />
+                <User />
+            </div>
         </div>
     )
 }
