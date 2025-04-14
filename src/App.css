@@ -1,3 +1,6 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+}
 html,
 body {
   box-sizing: border-box;
@@ -69,6 +72,12 @@ main {
   padding: 0;
 }
 
+@media (hover: none) and (pointer: coarse) {
+  *:focus {
+    outline: none;
+  }
+}
+
 @media (max-width:480.98px) {
   :root {
     --column-count: 2;
@@ -103,7 +112,7 @@ main {
   }
 }
 
-@media (min-width:1535px)  {
+@media (min-width:1535px) {
   :root {
     --column-count: 7;
     --column-gap: 20px;

@@ -27,7 +27,7 @@ function NavLeft() {
         [
             { src: '/', 'element': 'Home', 'bg': '/Navleft/home-alt-regular-36.png', },
             { src: '#', 'element': 'Explore', 'bg': '/Navleft/compass-regular-36.png', },
-            { src: '#', 'element': 'Profile', 'bg': '/Navleft/heart-regular-36.png', },
+            { src: '#', 'element': 'Favourite', 'bg': '/Navleft/heart-regular-36.png', },
         ],
         [
             { src: '/shop', 'element': 'Shop', 'bg': '/Navleft/store-regular-36 (1).png', }

@@ -1,8 +1,8 @@
 .suggest-card {
     box-sizing: border-box;
     position: relative;
-    flex: 0 0 calc((100% - calc(var(--column-gap) * calc(var(--column-count) - 1))) / var(--column-count));
-    width: calc(100% - calc(var(--column-gap)*calc(var(--column-count)-1))/var(--column-count));
+    flex: 0 0 200px;
+    width: 200px;
     aspect-ratio: 2/3;
     height: auto;
     border-radius: 10px;
@@ -40,10 +40,23 @@
 
 }
 
+.suggest-card:active {
+    transform: scale(1.1);
+    z-index: 50;
+}
+
 .suggest-card:hover {
-    transform: translateY(-20%);
+    transform: scale(1.1);
+    z-index: 50;
 }
 
 .suggest-card:hover>.button-details {
     opacity: 1;
+}
+
+@media (max-width:480px) {
+    .suggest-card {
+        flex: 0 0 150px;
+        width: 150px;
+    }
 }
