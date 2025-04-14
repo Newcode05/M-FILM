@@ -1,8 +1,10 @@
 .suggest-card {
     box-sizing: border-box;
     position: relative;
-    flex: 0 0 200px;
-    height: 300px;
+    flex: 0 0 calc((100% - calc(var(--column-gap) * calc(var(--column-count) - 1))) / var(--column-count));
+    width: calc(100% - calc(var(--column-gap)*calc(var(--column-count)-1))/var(--column-count));
+    aspect-ratio: 2/3;
+    height: auto;
     border-radius: 10px;
     overflow: hidden;
     transition: all 0.3s linear;
@@ -44,29 +46,4 @@
 
 .suggest-card:hover>.button-details {
     opacity: 1;
-}
-
-@media (max-width:480.98px) {
-    .suggest-card {
-        flex: 0 0 calc((100% - var(--column-gap)*2)/var(--column-count));
-        width: 0 0 calc((100% - var(--column-gap)*2)/var(--column-count));
-        height: auto;
-        aspect-ratio: 2/3;
-    }
-}
-
-@media (min-width:481px) and (max-width:767.98px) {
-    .suggest-card {
-        flex: 0 0 calc((100% - calc(var(--column-gap) * calc(var(--column-count) - 1))) / var(--column-count));
-        height: auto;
-        aspect-ratio: 2/3;
-    }
-}
-
-@media (min-width:768px) and (max-width:1024px) {
-    .suggest-card {
-        flex: 0 0 calc((100% - 30px) / 4);
-        aspect-ratio: 2/3;
-        height: auto;
-    }
 }
