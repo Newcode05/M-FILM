@@ -15,6 +15,7 @@ function Loading() {
     }, [loading]);
     useEffect(() => {
         setSrc(url.pathname);
+        setLoading(true);
     }, [url.pathname]);
     useEffect(() => {
         setDisplay(false);

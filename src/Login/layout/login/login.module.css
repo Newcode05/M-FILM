@@ -298,6 +298,8 @@
 }
 
 .sub-form {
+    box-sizing: border-box;
+    position: relative;
     margin: 5px 0px;
     border: none;
     color: white;

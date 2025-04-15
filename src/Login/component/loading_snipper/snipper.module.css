@@ -1,0 +1,25 @@
+.snipper {
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 4px solid rgb(177, 6, 245);
+    border-top: 4px solid white;
+    transition: opacity 0.3s linear;
+    animation: snipper 3s linear 0s infinite normal backwards;
+}
+
+@keyframes snipper {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+
+}

@@ -1,15 +1,17 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { GoogleOAuthProvider, GoogleLogin, useGoogleLogin } from "@react-oauth/google";
-import { Link } from "react-router-dom";
-import { v4 as uuid4 } from "uuid";
+import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { loginContext } from "../../../App";
 import { checkAll } from "./login";
+import { Snipper } from "../../component/loading_snipper/snipper";
 import styles from "./login.module.css";
-import axios from "axios";
 
+import axios from "axios";
+import { v4 as uuid4 } from "uuid";
 function Login() {
     const { login, setLogin } = useContext(loginContext);
+    const [snipper, setSnipper] = useState(null);
     const [inforform, setInforForm] = useState({
         id: "",
         firstname: "",
@@ -21,11 +23,21 @@ function Login() {
     const [warn, setWarn] = useState(0);
     const [index_image, set_index_image] = useState(0);
     const form = useRef(null);
+    const navigate = useNavigate();
     const images = [
         '/Login/lu kinh 1.png',
         '/Login/kho do danh 2.jpg',
         '/Login/khi cuoc doi cho ban qua quyt.jpg'
     ];
+    useEffect(() => {
+        let time = null;
+        if (login) {
+            time = setTimeout(() => {
+                navigate('/');
+            }, 3000);
+        }
+        return () => time ? clearTimeout(time) : null;
+    });
     const text = ['Hight quality', 'Whole Funny moment', 'Great experencie '];
     //Hàm cập nhật inforform
     const onChange = (e) => {
@@ -39,10 +51,10 @@ function Login() {
     const onSub = (e) => {
         e.preventDefault();
         if (!checkAll(inforform, setWarn)) {
-
         }
         else {
             setWarn(0);
+            setSnipper(true);
             const option = {
                 method: 'POST',
                 headers: {
@@ -52,11 +64,22 @@ function Login() {
                 body: JSON.stringify(inforform)
             }
 
-            fetch('http://127.0.0.1:8000/api/user', option)
+            fetch('http://127.0.0.1:8000/api/sign', option)
                 .then(response => { console.log(response); return response.json() })
-                .then(data => console.log(data))
-                .catch(error => console.log("Connect error:", error))
- 
+                .then(data => {
+                    console.log(data);
+                    setSnipper(false);
+                    if (data['status_login'] == 'success') {
+                        setLogin(true);
+                        alert('Đăng nhập thành công');
+                    }
+                    else {
+                        setLogin(true);
+                        alert('Tài khoản hoặc mật khẩu không chính xác');
+                    }
+                })
+                .catch(error => console.log("Connect error:", error));
+
         }
     }
 
@@ -64,7 +87,7 @@ function Login() {
     return (
         <GoogleOAuthProvider clientId="81447679247-7n1fe6575offt2umqc17h5e02peb6h9u.apps.googleusercontent.com" >
             <div className={styles['main']}>
-                <div className={styles['form']} onSubmit={(e) => onSub(e)}>
+                <div className={styles['form']} >
                     <div className={styles['bg-slides']}>
                         <div className={styles['slides']}>
                             <div className={styles['button-back']}><Link to="/"><span>Back to website</span><span></span></Link></div>
@@ -92,7 +115,7 @@ function Login() {
                     <div className={styles['contain-form']}>
                         <h1 className={styles['header-form']}>Create an account</h1>
                         <h2 className={styles['form-link']}>Already have an account ? <Link to="/">Login</Link></h2>
-                        <form ref={form} action="login.php" className={styles['login-form']}>
+                        <form ref={form} action="login.php" className={styles['login-form']} onSubmit={(e) => onSub(e)}>
                             <div>
                                 <label htmlFor="user-firstname"></label>
                                 <input type="text" name="firstname" className={styles["firstname"]} placeholder="First name" onChange={(e) => onChange(e)} required />
@@ -122,7 +145,7 @@ function Login() {
                             </div>
                             <h2 className={styles['term']}><input type="checkbox" name="agree" onClick={(e) => onCheked(e)} />I agree to the <Link to="">Term&Conditions</Link></h2>
                             <div className={styles['warn']}>{warn == 5 ? 'Please accepted with the policy' : null}</div>
-                            <button className={styles['sub-form']} type="submit" >Create account</button>
+                            <button className={styles['sub-form']} type="submit">{snipper ? <Snipper /> : "Create account"}</button>
                             <span className={styles['text']}>Or register with</span>
                             <CustomLoginGoogle />
                             <div className={styles['button-apple']}><span></span><span>Apple</span></div>
