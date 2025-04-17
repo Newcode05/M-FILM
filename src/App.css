@@ -1,6 +1,7 @@
 * {
   -webkit-tap-highlight-color: transparent;
 }
+
 html,
 body {
   box-sizing: border-box;
@@ -19,8 +20,13 @@ body {
   backdrop-filter: blur(10px);
   border: none;
   outline: none;
-  overflow: hidden;
   overflow-x: hidden;
+  overflow-y: auto;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
 }
 
 :root {

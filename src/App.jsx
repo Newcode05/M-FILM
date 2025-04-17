@@ -4,11 +4,12 @@ import { Header } from './header/layout/head/header'
 import { Home } from './layout/home/home'
 import { Shop } from './shop/layout/shop'
 import { NavLeft } from './nav-left/layout/navleft'
-import { Login } from './Login/layout/login/login.jsx'
+import { Form } from './Login/layout/form.jsx'
 import { WatchingLayout } from './watch/layout/watchinglayout'
 import { Footer } from './layout/footer/layout/footer.jsx'
 import { Loading } from './loading/loading.jsx'
 import { LazyCard } from './component/lazyloading/lazyloading.jsx'
+import { LogIn } from './Login/component/log/log.jsx'
 import './App.css'
 function LoginLayout() {
   return (
@@ -45,15 +46,28 @@ function Layout() {
     </>
   )
 }
+export const AuthContext = createContext(null);
 export const loginContext = createContext(null);
 export const DisplayNavContext = createContext(null);
 export const DesktopContext = createContext(null);
 export const LoadingContext = createContext(null);
 function App() {
+  const [user, setUser] = useState({
+    id: null,
+    name: '',
+    email: '',
+  });
   const [loading, setLoading] = useState(true);
   const [login, setLogin] = useState();
   const [displayNav, setDisplayNav] = useState(true);
   const [isDesktop, setIsDesktop] = useState(null);
+  useEffect(() => {
+    if (!login) setUser({
+      id: null,
+      name: '',
+      email: ''
+    });
+  }, [login]);
   useEffect(() => {
     setIsDesktop(window.innerWidth >= 1500);
     const windowSize = () => {
@@ -62,28 +76,32 @@ function App() {
     console.log(window.innerWidth);
     window.addEventListener('resize', windowSize);
     return () => window.removeEventListener('resize', windowSize);
-  }, [])
+  }, []);
   return (
-    <LoadingContext.Provider value={{ loading, setLoading }}>
-      <loginContext.Provider value={{ login, setLogin }}>
-        <DesktopContext.Provider value={{ isDesktop, setIsDesktop }}>
-          <DisplayNavContext.Provider value={{ displayNav, setDisplayNav }}>
-            <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<Layout />}>
-                  <Route index element={<Home />} />
-                  <Route path="shop" element={<Shop />} />
-                  <Route path="/watch" element={<WatchingLayout />} />
-                </Route>
-                <Route path="/login" element={<LoginLayout />}>
-                  <Route index element={<Login />} />
-                </Route>
-              </Routes>
-            </BrowserRouter>
-          </DisplayNavContext.Provider>
-        </DesktopContext.Provider>
-      </loginContext.Provider>
-    </LoadingContext.Provider>
+    <AuthContext.Provider value={{ user, setUser }}>
+      <LoadingContext.Provider value={{ loading, setLoading }}>
+        <loginContext.Provider value={{ login, setLogin }}>
+          <DesktopContext.Provider value={{ isDesktop, setIsDesktop }}>
+            <DisplayNavContext.Provider value={{ displayNav, setDisplayNav }}>
+              <BrowserRouter>
+                <Routes>
+                  <Route path="/" element={<Layout />}>
+                    <Route index element={<Home />} />
+                    <Route path="shop" element={<Shop />} />
+                    <Route path="watch/:videoID" element={<WatchingLayout />} />
+                  </Route>
+                  <Route path="/login" element={<LoginLayout />}>
+                    <Route index element={<Form type="login" />} />
+
+                  </Route>
+                  <Route path="/register" element={<Form />} />
+                </Routes>
+              </BrowserRouter>
+            </DisplayNavContext.Provider>
+          </DesktopContext.Provider>
+        </loginContext.Provider>
+      </LoadingContext.Provider>
+    </AuthContext.Provider>
   )
 }
 

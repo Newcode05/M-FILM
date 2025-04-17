@@ -1,0 +1,45 @@
+.button-back {
+    box-sizing: border-box;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px 15px;
+    width: max-content;
+    border-radius: 40px;
+    background-color: rgba(0, 0, 0, 0.1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: 50;
+}
+
+.button-back>a {
+    box-sizing: border-box;
+    height: auto;
+    width: max-content;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: white;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.button-back>a::after {
+    height: 24px;
+    width: 24px;
+    content: "";
+    background-image: url('/Login/right-arrow-alt-regular-36.png');
+    background-size: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+@media (max-width:780px) {
+    .button-back {
+        padding: 0;
+    }
+    .button-back>a {
+        width: 40px;
+        height: 40px;
+        font-size: 0;
+    }
+}

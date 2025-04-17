@@ -1,4 +1,3 @@
-import Cookies from "js-cookie";
 
 const checkName = (input) => {
     const regExp = /^[\p{L}][\p{L}\s?]*$/u;
@@ -25,7 +24,7 @@ const checkPassword = (input) => {
     if (regExp.test(input)) return true;
     else return false;
 }
-function checkAll(form, set) {
+function checkRegister(form, set) {
     if (!checkName(form['firstname'])) {
         set(1); return false;
     }
@@ -39,7 +38,7 @@ function checkAll(form, set) {
         set(4);
         return false;
     }
-    else if (!form['agree']) {
+    else if (!form['term']) {
         set(5);
         return false;
     }
@@ -47,5 +46,15 @@ function checkAll(form, set) {
         return true;
     }
 }
-export { checkAll };
-console.log(Cookies);
+function CheckLogin(form, set) {
+    if (!checkEmail(form['email'])) {
+        set(1);
+        return false;
+    }
+    if (!checkPassword(form['password'])) {
+        set(2);
+        return false;
+    }
+    return true;
+}
+export { checkRegister, CheckLogin };

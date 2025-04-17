@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import styles from "./switch.module.css"
-function Switch({ size = "md", count = 4, customStyle, index, setIndex, direction, PreDis,setDirection }) {
+function Switch({ size = "md", count = 4, customStyle, index, setIndex, direction, PreDis, setDirection }) {
     const runRef = useRef(null);
     const widthDot = 8;
     const gap = 20;
@@ -8,7 +8,6 @@ function Switch({ size = "md", count = 4, customStyle, index, setIndex, directio
     useEffect(() => {
         if (runRef.current) {
             if (direction == 'right') {
-                console.log('right');
                 runRef.current.style.width = `${8 + Math.abs(PreDis.current - index) * 28}px`;
                 clearTimeout(time);
                 time = setTimeout(() => {
@@ -20,12 +19,10 @@ function Switch({ size = "md", count = 4, customStyle, index, setIndex, directio
                 }, 300);
             }
             else if (direction == 'left') {
-                console.log('left');
                 let left = runRef.current.style.left.split('px');
                 runRef.current.style.right = `${124 - left[0] - 8}px`;
                 runRef.current.style.left = "unset";
                 runRef.current.style.width = `${8 + Math.abs(PreDis.current - index) * 28}px`;
-                console.log(runRef.current.style.width);
                 clearTimeout(time);
                 time = setTimeout(() => {
                     if (runRef.current) {

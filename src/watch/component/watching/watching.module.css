@@ -10,6 +10,19 @@
     margin-bottom: 20px;
 }
 
+.video-contain {
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    max-height: 100%;
+
+}
+
 .video {
     box-sizing: border-box;
     position: absolute;

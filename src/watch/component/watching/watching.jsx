@@ -5,7 +5,7 @@ import styles from "./watching.module.css"
 export const VideoPlayContext = createContext();
 export const ScreenContext = createContext();
 export const TimeContext = createContext();
-function Watching() {
+function Watching({ video = "null" }) {
     const [screen, setScreen] = useState(false);
     const [play, setPlay] = useState(true);
     const [interact, setInteract] = useState(false);
@@ -68,20 +68,23 @@ function Watching() {
             <VideoPlayContext.Provider value={{ play, setPlay }}>
                 <TimeContext.Provider value={{ time, setTime, seekTime, setSeekTime }}>
                     <div ref={watchRef} className={styles['watching']}>
-                        <video
-                            ref={videoRef}
-                            src="/Movie/Mavka.mp4"
-                            className={styles['video']}
-                            muted
-                            onTimeUpdate={() => onVideoPlay()}
-                            onLoadedMetadata={(e) => videoDuraction.current = e.target.duration}
-                        ></video>
+                        <div className={styles['video-contain']}>
+                            <video
+                                ref={videoRef}
+                                src="/Movie/Mavka.mp4"
+                                className={styles['video']}
+                                muted
+                                onTimeUpdate={() => onVideoPlay()}
+                                onLoadedMetadata={(e) => videoDuraction.current = e.target.duration}
+                            ></video>
+                            {interact ? <BoxControl /> : null}
+                        </div>
                         {!interact ? <img
                             src="/Img-Poster/mavkar-3.jpg"
                             alt="poster"
                             className={styles['poster']} /> : null}
                         {!interact ? <div className={styles['button-interact']} onClick={interactHandle}></div> : null}
-                        {interact ? <BoxControl /> : null}
+
                     </div>
                 </TimeContext.Provider>
             </VideoPlayContext.Provider>

@@ -11,9 +11,6 @@ function Loading() {
     const timeRef = useRef(null);
     const url = useLocation();
     useEffect(() => {
-        console.log(loading)
-    }, [loading]);
-    useEffect(() => {
         setSrc(url.pathname);
         setLoading(true);
     }, [url.pathname]);
@@ -30,12 +27,10 @@ function Loading() {
             setLoadStep(prev => {
                 if (prev > 100) {
                     clearInterval(timeRef.current);
-                    console.log('clear 2');
                     return 0;
                 }
                 return prev + Math.random() * 10
             });
-            console.log('interval');
         }, 500);
 
         return () => timeRef.current ? clearInterval(timeRef.current) : 0

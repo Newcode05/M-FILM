@@ -2,11 +2,10 @@
 import { Button } from "../button/button";
 import { Discription } from "../discript/discript";
 import styles from "./trailer.module.css";
-function Trailer({film}) {
+function Trailer({ film }) {
     return (
         <div className={styles['trailer-contain']}>
-            <video className={styles['trailer']} src=""></video>
-            <img className={styles['poster']} src={film.poster} alt="poster" />
+            <img className={styles['poster']} src={film.poster} alt="poster" draggable="false" />
             <Button
                 customStyle={{
                     position: "absolute",

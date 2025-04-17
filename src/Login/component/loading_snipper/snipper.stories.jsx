@@ -3,5 +3,8 @@ export default {
     title: 'Login/Component/Snipper',
     component: Snipper
 }
-const Template = (args) => <Snipper {...args} />
-export const Default = Template.bind({});
+export const Default = {
+    args: {
+        customStyle: {}
+    }
+}

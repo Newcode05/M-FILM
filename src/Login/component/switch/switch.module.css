@@ -1,0 +1,28 @@
+.switch {
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 50;
+}
+
+.item {
+    flex: 0 0 20px;
+    height: 5px;
+    border: none;
+    border-radius: 20px;
+    background-color: white;
+    transition: flex-basis 0.3s linear, background-color 0.3s linear;
+    cursor: pointer;
+}
+
+.active-item {
+    flex: 0 0 30px;
+    background-color: rgb(150, 86, 215);
+}
