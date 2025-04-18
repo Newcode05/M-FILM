@@ -9,6 +9,7 @@ import { WatchingLayout } from './watch/layout/watchinglayout'
 import { Footer } from './layout/footer/layout/footer.jsx'
 import { Loading } from './loading/loading.jsx'
 import { LazyCard } from './component/lazyloading/lazyloading.jsx'
+import { Result } from './layout/search_result/component/list_result/listresult.jsx'
 import { LogIn } from './Login/component/log/log.jsx'
 import './App.css'
 function LoginLayout() {
@@ -89,6 +90,7 @@ function App() {
                     <Route index element={<Home />} />
                     <Route path="shop" element={<Shop />} />
                     <Route path="watch/:videoID" element={<WatchingLayout />} />
+                    <Route path="search/" element={<Result />} />
                   </Route>
                   <Route path="/login" element={<LoginLayout />}>
                     <Route index element={<Form type="login" />} />

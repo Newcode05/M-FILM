@@ -17,3 +17,21 @@
     border: 1px solid gray;
     text-decoration: none;
 }
+
+@media (max-width:359.99px) {
+    .icon-contact {
+        width: 30px;
+        height: 30px;
+        
+    }
+    .icon-contact a {
+        background-size: 18px;
+    }
+}
+
+@media (min-width:360px) and (max-width:479.99px) {
+    .icon-contact {
+        width: 35px;
+        height: 35px;
+    }
+}

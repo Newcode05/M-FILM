@@ -5,7 +5,7 @@ function Title({ document }) {
         <div className={styles['document-contain']}>
             <h3 className={styles['document-title']}>{document.title}</h3>
             {document.list.map((card, index) =>
-                <div key={index}>
+                <div className={styles['document']} key={index}>
                     <a href={card.src}>{card.name}</a>
                 </div>
             )}

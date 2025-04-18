@@ -10,11 +10,11 @@
 }
 
 .movie-name {
-    font-size: 4rem;
+    font-size: 1.8em;
 }
 
 .movie-infor {
-    font-size: 2rem;
+    font-size: 1.2em;
 }
 
 .episode {
@@ -43,7 +43,7 @@
 }
 
 .discription {
-    font-size: 1.5rem;
+    font-size: 1em;
     text-overflow: ellipsis;
     white-space: normal;
     word-break: normal;
