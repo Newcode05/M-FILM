@@ -1,0 +1,22 @@
+label {
+    color:white;
+}
+
+
+.season {
+    box-sizing: border-box;
+    padding: 10px 15px;
+    outline: none;
+}
+
+.label-file {
+    box-sizing: border-box;
+    padding: 10px 15px;
+    width: max-content;
+    background-color: aquamarine;
+    border-radius: 5px;
+}
+
+.file {
+    display: none;
+}

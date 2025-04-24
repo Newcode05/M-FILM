@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import {  useRef, useEffect } from "react";
 import styles from "./switch.module.css"
 function Switch({ size = "md", count = 4, customStyle, index, setIndex, direction, PreDis, setDirection }) {
     const runRef = useRef(null);

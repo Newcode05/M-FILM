@@ -12,7 +12,7 @@ function ResultCard({ video = null }) {
                 <div className={styles['result-card']}>
                     <Link className={styles['watch']} to={`/watch/${video.id}`}></Link>
                     <img className={styles['video-poster']}
-                        src="/public/Img-Poster/Khi cuoc doi cho ban qua quyt 2.jpg"
+                        src={video['poster_hor_url']}
                         alt={`poster-${video.title}`}
                         draggable="false" />
                     <div className={styles['video-title']}>{video.title}</div>
