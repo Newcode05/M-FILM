@@ -1,0 +1,106 @@
+.discription-movie {
+    position: relative;
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.movie-name {
+    font-size: 1.5em;
+}
+
+.movie-infor {
+    width: 100%;
+    font-size: 1em;
+}
+
+.episode {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 0.9em;
+}
+
+.actor-list {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.actor {
+    flex: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: aliceblue;
+}
+
+.discription {
+    font-size: 1em;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: normal;
+}
+
+/*Season*/
+.season-contain {
+    box-sizing: border-box;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 20px;
+    cursor: pointer;
+
+}
+
+.season-item {
+    box-sizing: border-box;
+    padding: 10px 15px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/*Episode*/
+.episode-contain {
+    box-sizing: border-box;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 20px;
+    cursor: pointer;
+
+}
+.episode-item {
+    box-sizing: border-box;
+    padding: 8px 8px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 0.8em;
+    transition: all 0.3s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}

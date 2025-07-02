@@ -1,0 +1,90 @@
+.input {
+    box-sizing: border-box;
+    position: relative;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+    height: 40px;
+    width: 100%;    
+    border: none;
+    border-radius: 3px;
+    background-color: rgba(59, 53, 75, 1);
+    color: white;
+    z-index: 20;
+    /*-webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);*/
+}
+
+.input:focus {
+    outline: 2px solid rgb(159, 108, 226);
+}
+
+.input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.term {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.term>a {
+    box-sizing: border-box;
+    padding-left: 5px;
+}
+
+.input-default {
+    position: relative;
+    width: 100%;
+    height: 40px;
+}
+
+.input-default::after {
+    content: attr(warn);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0px 5px;
+    position: absolute;
+    left: 0px;
+    top: calc(100% + 3px);
+    width: 100%;
+    height: 1.5rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-family: inherit;
+    font-size: 1.1rem;
+    color: rgba(255, 0, 0, 1);
+
+    opacity: 1;
+    z-index: 100;
+}
+
+
+
+/*Input password */
+.input-password::-ms-reveal,
+.input-password::-ms-clear,
+.input-password::-webkit-contacts-auto-fill-button,
+.input-password::-webkit-textfield-decoration-container {
+    display: none;
+}
+
+.eye {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 0px;
+    right: 0px;
+    background-size: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: background-image 0.1s linear;
+    z-index: 100;
+}

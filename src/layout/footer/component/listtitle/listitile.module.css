@@ -9,7 +9,7 @@
     align-items: flex-start;
 }
 
-.document-contain div {
+.document-contain>div {
     width: max-content;
     margin: 0;
     margin-bottom: 10px;

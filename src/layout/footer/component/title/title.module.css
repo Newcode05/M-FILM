@@ -1,15 +1,26 @@
 .document-contain {
+    box-sizing: border-box;
+    padding: 0;
     width: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     height: max-content;
 }
 
 .document-title {
-    font-size: 2rem;
+    box-sizing: border-box;
+    margin: 0;
+    font-size: 1.8em;
     color: white;
 }
 .document-contain a {
+    box-sizing: border-box;
+    margin: 0;
+    display: block;
     width: 100%;
+    height: auto;
     text-decoration: none;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.2em;
 }

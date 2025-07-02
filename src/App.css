@@ -1,3 +1,9 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
 html,
 body {
   box-sizing: border-box;
@@ -16,8 +22,23 @@ body {
   backdrop-filter: blur(10px);
   border: none;
   outline: none;
-  overflow: hidden;
   overflow-x: hidden;
+  overflow-y: auto;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --column-count: 2;
+  --column-count-min: 2;
+  --column-count-max: 5;
+  --column-size-min: 100px;
+  --colum-size-max: 250px;
+  --column-gap: 10px;
+
 }
 
 #root {
@@ -42,18 +63,48 @@ body {
 main {
   box-sizing: border-box;
   position: relative;
-  padding-right: 25px;
+  padding: 0;
   top: 80px;
   left: 300px;
   width: calc(100% - 300px);
-  height: 100%;
+  min-height: 100%;
+  height: auto;
 }
+
 .login-main {
   position: relative;
-  left:0px;
-  top:0px;
+  left: 0px;
+  top: 0px;
   box-sizing: border-box;
   width: 100%;
   height: 100%;
   padding: 0;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  *:focus {
+    outline: none;
+  }
+}
+
+@media (min-width:780px) and (max-width:1500px) {
+  main {
+    left: 25px;
+    width: calc(100% - 50px);
+  }
+
+}
+
+@media (max-width:780px) {
+  main {
+    left: 15px;
+    width: calc(100% - 30px);
+  }
+}
+
+@media (max-width:480px) {
+  main {
+    left: 10px;
+    width: calc(100% - 20px);
+  }
 }

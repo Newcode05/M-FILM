@@ -1,0 +1,23 @@
+.section {
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+}
+.title {
+    font-size: 2.5rem;
+    color: white;
+}
+.list {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.list::-webkit-scrollbar {
+    display: none;
+
+}
