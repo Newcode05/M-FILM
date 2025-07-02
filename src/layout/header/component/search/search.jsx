@@ -1,6 +1,6 @@
 
-import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useState } from "react"
+import { useNavigate, Link } from "react-router-dom"
 import styles from "./search.module.css"
 
 function Search() {
@@ -15,7 +15,7 @@ function Search() {
     }
     return (
         <form className={styles['search-contain']} onSubmit={onSub}>
-            <div className={styles['search-button']}></div>
+            <Link className={styles['search-button']} to={`/search?q=${encodeURIComponent(search)}`}></Link>
             <input className={styles['search']}
                 type="text"
                 name="search"

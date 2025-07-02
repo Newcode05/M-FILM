@@ -1,15 +1,15 @@
 
-import { useContext, useState,useEffect } from "react";
+import {useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import { Watching } from "../component/watching/watching";
 import { DescriptionMovie } from "../component/discription/description";
-import { LoadingContext } from "../../../App";
+import { useLoading } from "../../../Providers/Context/LoadingContext";
 import { intance } from "../../../Providers/axiosClient";
 import styles from "./watchinglayout.module.css";
 
 function WatchingLayout() {
-    const { loading } = useContext(LoadingContext);
+    const { loading } = useLoading();
     const [load, setLoad] = useState(true);
     const [video, setVideo] = useState({
         id: null,

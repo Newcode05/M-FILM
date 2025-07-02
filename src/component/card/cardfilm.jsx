@@ -1,5 +1,4 @@
 
-import { Heading } from "@storybook/blocks";
 import styles from "./cardfilm.module.css";
 function CardFilm({ customStyle, customClass, dir = "hor", card }) {
     const styleCard = {

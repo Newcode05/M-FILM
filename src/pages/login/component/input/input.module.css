@@ -6,7 +6,7 @@
     padding: 0;
     padding-left: 10px;
     height: 40px;
-    width: 100%;
+    width: 100%;    
     border: none;
     border-radius: 3px;
     background-color: rgba(59, 53, 75, 1);
@@ -46,17 +46,16 @@
 .input-default::after {
     content: attr(warn);
     box-sizing: border-box;
+    margin: 0;
     padding: 0px 5px;
     position: absolute;
     left: 0px;
     top: calc(100% + 3px);
     width: 100%;
-    height: max-content;
-    white-space: normal;
-    word-break: normal;
+    height: 1.5rem;
+    white-space: nowrap;
     text-overflow: ellipsis;
-    display: flex;
-    align-items: center;
+    overflow: hidden;
     font-family: inherit;
     font-size: 1.1rem;
     color: rgba(255, 0, 0, 1);

@@ -1,6 +1,8 @@
 /** @type { import('@storybook/react').Preview } */
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import "./test.css"
 const preview = {
+
   parameters: {
     controls: {
       matchers: {
@@ -8,6 +10,10 @@ const preview = {
         date: /Date$/i,
       },
     },
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+      defaultViewport: 'responsive',
+    }
   },
   decorators: [
     (Story) => (

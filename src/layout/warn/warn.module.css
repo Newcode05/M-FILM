@@ -1,21 +1,19 @@
 .warn-layout {
-    box-sizing: border-box;
     position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;
     height: 100%;
-    z-index: 100000;
     pointer-events: auto;
     background-color: rgba(100, 100, 100, 0.2);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     -webkit-user-select: none;
     user-select: none;
+    z-index: 100000;
 }
 
 .warn-contain {
-    box-sizing: border-box;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -24,12 +22,12 @@
     height: auto;
     aspect-ratio: 16/9;
     border-radius: 10px;
-    animation: tran 0.2s linear;
-    animation-iteration-count: 1;
+    border: 1px solid blueviolet;
+    animation: tran 0.2s 1 linear;
     background-color: rgba(43, 38, 55, 0.7);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    border: 1px solid blueviolet;
+    font-size: 1rem;
 }
 
 @keyframes tran {
@@ -43,7 +41,6 @@
 }
 
 .warn-content {
-    box-sizing: border-box;
     position: absolute;
     top: 90px;
     left: 50%;
@@ -54,15 +51,62 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-
     color: white;
 }
 
 
-
+/*Icon*/
 .img-icon {
     position: absolute;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.exit {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    background-image: url("/Warn/x-regular-96.png");
+    background-size: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+}
+
+@media (max-width:1024) {}
+
+@media (max-width:992px) {}
+
+@media (max-width:780px) {}
+
+@media (max-width:690px) {}
+
+@media (max-width:480px) {
+    .warn-contain {
+        width: 360px;
+        font-size: 0.9rem;
+    }
+
+    .img-icon {
+        width: 50px;
+    }
+}
+
+@media (max-width:360px) {
+    .warn-contain {
+        width: 300px;
+        font-size: 0.8rem;
+    }
+
+    .img-icon {
+        width: 40px;
+    }
 }

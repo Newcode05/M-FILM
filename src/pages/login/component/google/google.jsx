@@ -1,18 +1,20 @@
-import { useContext } from "react";
+
 import { useGoogleLogin } from "@react-oauth/google";
-import { LoginContext, AuthContext } from "../../../../App";
-import axios from "axios";
-import Cookies from "js-cookie";
+
+import { useLogIn } from "../../../../Providers/Context/LoginContext";
+import { useAuth } from "../../../../Providers/Context/AuthContext";
+
 import { intance } from "../../../../Providers/axiosClient";
 import styles from "./google.module.css"
 
-const CustomLoginGoogle = () => {
-    const { login, setLogin } = useContext(LoginContext);
-    const { setUser } = useContext(AuthContext);
+export const CustomLoginGoogle = ({ setElement = () => { }, setNotice = () => { } }) => {
+    const { setLogin } = useLogIn();
+    const { setUser } = useAuth();
     const sendUser = (user) => {
         intance.post('/api/login/auth', user)
             .then(res => {
                 console.log(res);
+                setNotice(true);
                 if (res.data['message'] === 'success') {
                     const { user } = res.data;
                     setLogin(true);
@@ -24,10 +26,18 @@ const CustomLoginGoogle = () => {
                         'bg': user.bg
                     })
                 }
-
-                return res;
+                else {
+                    setLogin(false);
+                    setElement('Account or password is incorrect');
+                }
             })
-            .then(data => console.log(data));
+            .then(data => console.log(data))
+            .catch(err => {
+                console.log(err);
+                setNotice(true);
+                setElement(err);
+            }
+            );
     }
     const getUser = async (tokenResponse) => {
         console.log(tokenResponse);
@@ -52,4 +62,3 @@ const CustomLoginGoogle = () => {
         <div className={styles['button-google']} onClick={() => loginSub()}><span></span><span>Google</span></div>
     )
 }
-export { CustomLoginGoogle }

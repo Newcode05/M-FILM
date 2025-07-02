@@ -1,0 +1,58 @@
+.acc-email {
+    margin-top: 10px;
+    height: 30px;
+    width: 30px;
+    border: 1px solid blueviolet;
+    border-radius: 50px;
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    animation: tran 0.8s ease-in-out forwards;
+    overflow: hidden;
+}
+
+@keyframes tran {
+    from {
+        width: 30px;
+    }
+
+    to {
+        width: 230px;
+    }
+}
+
+.acc-email>a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: white;
+}
+
+.bg {
+    padding: 0px;
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-image: url("/public/Forget/user-circle-regular-24.png");
+    background-size: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.content {
+    flex: 0 0 max-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.content:hover {
+    color: blueviolet;
+}

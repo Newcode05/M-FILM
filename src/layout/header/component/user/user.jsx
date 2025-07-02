@@ -1,11 +1,12 @@
 
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { LoginContext, AuthContext } from "../../../../App";
+import { useAuth } from "../../../../Providers/Context/AuthContext";
+import { useLogIn } from "../../../../Providers/Context/LoginContext";
 import styles from "./user.module.css";
 function User() {
-    const { user } = useContext(AuthContext);
-    const { login, setLogin } = useContext(LoginContext);
+    const { user } = useAuth();
+    const { login, setLogin } = useLogIn();
     const [menu, setMenu] = useState(false);
     return (
         <div style={user.bg ? { backgroundImage: `url(${user.bg ? user.bg : ''})` } : { backgroundSize: '24px' }} className={styles['user']} onClick={() => setMenu(prev => !prev)}>

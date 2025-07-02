@@ -1,0 +1,39 @@
+.text-animation {
+    padding-right: 5px;
+    width: max-content;
+    height: 18px;
+    border: none;
+    border-right: 3px solid black;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    animation: type 1s step-end infinite;
+}
+
+@keyframes type {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.text-new {
+    margin-top: 10px;
+    transition: transform 1s ease-in-out;
+    transform: scaleX(0.1);
+    transform-origin: left;
+    width: 150px;
+    height: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid black;
+}
+
+.text-new:hover {
+    transform: scaleX(1);
+}

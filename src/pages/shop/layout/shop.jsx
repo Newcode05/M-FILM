@@ -1,13 +1,14 @@
-import { useContext } from "react";
+
 import { TrailerShop } from "../component/trailer/trailershop";
 import { Theater } from "../component/theater/theater";
 import { TicketCard } from "../component/ticket/ticket";
 import { FoodLayout } from "../component/listfood/foodlayout";
-import { LoadingContext } from "../../../App";
+
+import { useLoading } from "../../../Providers/Context/LoadingContext";
 import styles from "./shop.module.css";
 
-function Shop() {
-    const { loading } = useContext(LoadingContext);
+export const Shop = () => {
+    const { loading } = useLoading();
     return (
         !loading ?
             <div className={styles['shop-layout']}>
@@ -22,4 +23,3 @@ function Shop() {
             </div> : null
     )
 }
-export { Shop };

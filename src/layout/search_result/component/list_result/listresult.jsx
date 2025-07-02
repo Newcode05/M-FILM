@@ -2,12 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import { ResultCard } from "../result_card/resultcard";
-import { LoadingContext } from "../../../../App";
-
+import { useLoading } from "../../../../Providers/Context/LoadingContext";
 import { intance } from "../../../../Providers/axiosClient";
 import styles from "./listresult.module.css"
 const Result = () => {
-    const { loading } = useContext(LoadingContext);
+    const { loading } = useLoading();
     const [videos, setVideos] = useState([]);
     const [load, setLoad] = useState(true);
     const url = useLocation();

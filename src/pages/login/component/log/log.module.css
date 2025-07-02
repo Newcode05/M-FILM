@@ -17,6 +17,7 @@
     justify-content: center;
     align-items: center;
     background-color: transparent;
+    font-size: 1rem;
 }
 
 .contain {
@@ -32,12 +33,29 @@
 }
 
 .title {
-    box-sizing: border-box;
     position: relative;
     width: 100%;
+    flex: 0 0 40px;
     text-align: center;
     color: white;
-    font-size: 3rem;
+    font-size: 3em;
+}
+
+.title>.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: max-content;
+    border: none;
+    border-right: 3px solid white;
+    animation: type 0.5s step-end infinite;
+}
+
+@keyframes type {
+    50% {
+        border-color: transparent;
+    }
 }
 
 .form-login {
@@ -58,9 +76,11 @@
     margin: 0px;
     width: 100%;
     color: gray;
+    display: flex;
+    justify-content: space-between;
 }
 
-.register>a {
+.register a {
     font-size: 1.3rem;
     color: blueviolet;
 }

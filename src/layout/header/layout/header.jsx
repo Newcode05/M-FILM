@@ -1,14 +1,18 @@
-import { useContext } from "react";
+
 import { Logo } from "../../../component/logo/logo";
 import { Sort } from "../component/sort/sort";
 import { Search } from "../component/search/search";
 import { Notice } from "../component/notice/notice";
 import { User } from "../component/user/user";
-import { DisplayNavContext, DeviceContext } from "../../../App";
+
+import { useDisplayNav } from "../../../Providers/Context/DisplayNavContext";
+import { useDevice } from "../../../Providers/Context/DeviceContext";
+
 import styles from "./header.module.css";
+
 function Header() {
-    const { displayNav, setDisplayNav } = useContext(DisplayNavContext);
-    const { isDevice } = useContext(DeviceContext);
+    const { displayNav, setDisplayNav } =useDisplayNav();
+    const { isDevice } = useDevice();
     const filter = [
         { 'title': 'All', },
         { 'title': 'Single' },

@@ -38,20 +38,39 @@
     min-height: 480px;
 }
 
+@media (max-width:1024px) {
+    .form-column {
+        padding: 0px 25px;
+    }
+}
+
+@media (max-width:780px) {
+    .form-column {
+        padding: 0px 20px;
+    }
+
+    .poster-column {
+        padding: 0px 10px;
+    }
+}
+
 @media (max-width:690px) {
     .custom-login {
         aspect-ratio: 3/4;
         justify-content: center;
         height: auto;
+        
 
     }
 
     .poster-column {
         display: none;
+        padding: 0px 20px;
     }
 
     .form-column {
         flex: 0 0 100%;
+        padding: 0px 15px;
     }
 }
 
@@ -59,6 +78,8 @@
     .custom-login {
         aspect-ratio: 3/4;
         background-color: transparent;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
     }
 
     .poster-column {
@@ -67,6 +88,7 @@
 
     .form-column {
         flex: 0 0 100%;
+        padding: 0px 10px;
     }
 }
 

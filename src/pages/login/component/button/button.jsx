@@ -1,6 +1,6 @@
 import styles from "./button.module.css";
 import { Snipper } from "../loading_snipper/snipper";
-function ButtonSign({ type = "sign in", load = true, customStyle, handleClick = () => { } }) {
+export const ButtonSign = ({ type = "sign in", load = true, customStyle, handleClick = () => { } }) => {
     return (
         <button
             type="submit"
@@ -12,4 +12,3 @@ function ButtonSign({ type = "sign in", load = true, customStyle, handleClick = 
             {load ? '' : type === "sign in" ? "Create account" : "Log in"}</button>
     )
 }
-export { ButtonSign }

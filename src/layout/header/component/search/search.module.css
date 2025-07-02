@@ -38,7 +38,7 @@
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
-    background-image: url('Header/search-regular-24.png');
+    background-image: url("/Header/search-regular-24.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 20px;

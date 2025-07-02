@@ -1,17 +1,19 @@
-import { Link } from "react-router-dom"
-import { useEffect, useState } from "react"
+
+import { useState } from "react"
 import styles from "./input.module.css"
 
-function Input({ type = "text", name = "", warn = "*Invalid", placeholder = "Email", customStyle, customClass, handleChange = () => { } }) {
+
+export const Input = ({ type = "text", name = "", warn = "*Invalid", placeholder = "Email", customStyle, customClass, handleChange = () => { } })=> {
     const [see, setSee] = useState(false);
     return (
         type == "checkbox" ?
             <div className={` ${styles['input-default']} ${styles['term']}`} warn={warn}>
-                <input className={`${styles['term-checkbox']}`}
+                <input
+                    className={`${styles['term-checkbox']}`}
                     type="checkbox"
                     name={name}
                     onChange={(e) => handleChange(e)} />
-                I agree to <a href="/"> the Term&Conditions</a>
+                I agree to <a href="/"> the Terms&Conditions</a>
             </div>
             : type == "password" ?
                 <div className={`${styles['input-default']}  ${customClass}`} warn={warn}>
@@ -44,4 +46,3 @@ function Input({ type = "text", name = "", warn = "*Invalid", placeholder = "Ema
                 </div >
     )
 }
-export { Input }

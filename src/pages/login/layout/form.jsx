@@ -1,20 +1,15 @@
-
-
 import { Poster } from "../component/poster/poster"
-import { LogIn } from "../component/log/log"
-import { Register } from "../component/register/register"
 
 import styles from "./form.module.css"
-const Form = ({ type = "register" }) => {
+export const Form = ({ children }) => {
     return (
         <div className={styles['custom-login']}>
             <div className={styles['poster-column']}>
                 <Poster />
             </div>
             <div className={styles['form-column']}>
-                {type == "register" ? <Register /> : <LogIn />}
+                {children}
             </div>
         </div>
     )
 }
-export { Form }

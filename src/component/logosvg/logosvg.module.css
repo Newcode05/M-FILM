@@ -1,0 +1,37 @@
+.logo-container {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+
+}
+
+.logo-svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+}
+
+
+.path {
+    fill: none;
+    stroke-width: 2;
+    stroke: rgb(85, 219, 13);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dashoffset: 400;
+    stroke-dasharray: 400;
+    animation: draw 2s 1 forwards;
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}

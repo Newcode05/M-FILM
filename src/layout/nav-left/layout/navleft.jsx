@@ -1,23 +1,26 @@
 
-import { createContext, useRef, useContext, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useRef,  useEffect } from "react";
 import { Logo } from "../../../component/logo/logo";
 import { Card } from "../component/card";
-import { LoginContext, DisplayNavContext, AuthContext, DeviceContext } from "../../../App";
+
+import { useDisplayNav } from "../../../Providers/Context/DisplayNavContext";
+import { useLogIn } from "../../../Providers/Context/LoginContext";
+import { useDevice } from "../../../Providers/Context/DeviceContext";
+import { useAuth } from "../../../Providers/Context/AuthContext";
+
+import { NavLeftProvider } from "../../../Providers/Context/NavLeftContext";
+
 import styles from "./navleft.module.css";
 
-export const NavLeftContext = createContext(null);
-function NavLeft() {
-    const tab = useLocation();
-    const src = tab.pathname;
-    const { user } = useContext(AuthContext);
-    const { login } = useContext(LoginContext);
-    const { displayNav, setDisplayNav } = useContext(DisplayNavContext);
-    const [indexSelect, setIndexSelect] = useState(src);
-    const { isDevice } = useContext(DeviceContext)
+
+export const NavLeft = () => {
+    const { user } = useAuth();
+    const { login } = useLogIn();
+    const { displayNav, setDisplayNav } = useDisplayNav();
+    const { isDevice } = useDevice();
     const navRef = useRef(null);
     useEffect(() => {
-        if (isDevice !== "desktop") {
+        if (isDevice != "desktop") {
             setDisplayNav(false);
         }
     }, []);
@@ -54,15 +57,13 @@ function NavLeft() {
         isDevice == "tablet" || isDevice == "mobile" ?
             [
                 !login ?
-                    { src: '/login', 'element': 'Log in', 'bg': '/public/Header/log-in-regular-36.png' } :
-                    { src: '/logout', 'element': 'Log out', 'bg': '/public/Logout/log-out-regular-36.png' }
+                    { src: '/login', 'element': 'Log in', 'bg': '/Header/log-in-regular-36.png' } :
+                    { src: '/login', 'element': 'Log out', 'bg': '/Logout/log-out-regular-36.png' }
             ] : []
     ];
     const nav = list.filter(arr => arr.length > 0);
-    console.log(nav);
-    console.log(user);
     return (
-        <NavLeftContext.Provider value={{ indexSelect, setIndexSelect }}>
+        <NavLeftProvider>
             {displayNav ?
                 <nav ref={navRef} className={styles['nav-left']}>
                     <h2 className={styles['title-nav']}><Logo handleClick={() => setDisplayNav(prev => !prev)} />M FILM</h2>
@@ -70,8 +71,7 @@ function NavLeft() {
                         <Card key={index} card={card} end={index == (nav.length - 1) ? false : true} />
                     )}
                 </nav> : null}
+        </NavLeftProvider>
 
-        </NavLeftContext.Provider>
     )
 }
-export { NavLeft }

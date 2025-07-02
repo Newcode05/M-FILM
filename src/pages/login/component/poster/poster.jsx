@@ -7,7 +7,7 @@ const Poster = ({ }) => {
     const listPoster = [
         { poster: '/Login/khi cuoc doi cho ban qua quyt.jpg', alt: 'poster' },
         { poster: '/Login/lu kinh 1.png', alt: 'poster' },
-        { poster: '/public/Login/34/review-kho-do-danh-nhung-tap-dau-2.jpg', alt: 'poster' },
+        { poster: '/Login/34/review-kho-do-danh-nhung-tap-dau-2.jpg', alt: 'poster' },
 
     ]
     return (
@@ -18,7 +18,7 @@ const Poster = ({ }) => {
                     src={card.poster}
                     alt={card.alt}
                     className={`${styles['img-slide']} ${indexActive == index ? styles['img-active'] : ''}`}
-                />
+                    draggable="false" />
             )}
             <Switch indexActive={indexActive} setIndexActive={setIndexActive} />
         </div>
