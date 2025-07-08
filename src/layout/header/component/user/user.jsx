@@ -9,16 +9,18 @@ function User() {
     const { login, setLogin } = useLogIn();
     const [menu, setMenu] = useState(false);
     return (
-        <div style={user.bg ? { backgroundImage: `url(${user.bg ? user.bg : ''})` } : { backgroundSize: '24px' }} className={styles['user']} onClick={() => setMenu(prev => !prev)}>
+        <div style={user.bg ? { backgroundImage: `url(${user.bg ? user.bg : ''})` } : { backgroundSize: '24px' }}
+            className={styles['user']}
+            onClick={() => setMenu(prev => !prev)}>
             {menu ?
                 <div className={styles['menu-user']}>
                     {login ?
                         <>
                             <h3 className={styles['user-infor']}>@{user.name}</h3>
-                            <div><Link to="/login" className={styles["service"]}>Packages and services</Link></div>
-                            <div><Link to="/login" className={styles['log-out']} onClick={() => { console.log('a'); setLogin(false) }}>Log out</Link></div>
+                            <div><Link to="/auth/login" className={styles["service"]}>Packages and services</Link></div>
+                            <div><Link to="/auth/login" className={styles['log-out']} onClick={() => { setLogin(false) }}>Log out</Link></div>
                         </>
-                        : <div><Link style={{ backgroundImage: 'url("Header/log-in-regular-36.png")' }} to="/login" > Log in</Link></div>}
+                        : <div><Link style={{ backgroundImage: 'url("Header/log-in-regular-36.png")' }} to="/auth/login" > Log in</Link></div>}
                 </div> : null
             }
         </div >

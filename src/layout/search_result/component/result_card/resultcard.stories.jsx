@@ -7,7 +7,7 @@ export const Default = {
     args: {
         video:{
             title: 'Bậc thầy đàm phán 3',
-            poster: '/public/Img-Poster/bậc thầy đàm phán 3.jpg'
+            poster: '/Img-Poster/bậc thầy đàm phán 3.jpg'
         }
     }
 }

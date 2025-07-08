@@ -2,15 +2,16 @@ import { createContext, useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { GoogleOAuthProvider } from "@react-oauth/google"
 
-import { Warn } from "../../../../layout/warn/warn.jsx"
-import { Input } from "../input/input"
-import { ButtonSign } from "../button/button"
-import { Logo } from "../../../../component/logo/logo.jsx"
-import { CustomLoginGoogle } from "../google/google"
-import { CustomApple } from "../apple/apple"
-import { Otp } from "../../../../component/otp/otp.jsx"
+import { Warn } from "../../layout/warn/warn.jsx"
+import { Input } from "../login/component/input/input.jsx"
+import { ButtonSign } from "../login/component/button/button.jsx"
+import { Logo } from "../../component/logo/logo.jsx"
+import { CustomLoginGoogle } from "../login/component/google/google.jsx"
+import { CustomApple } from "../login/component/apple/apple.jsx"
+import { Otp } from "../../component/otp/otp.jsx"
 
 import { useRegister } from "./hooks/useRegister.js"
+import { useTranslation } from "react-i18next"
 
 import styles from "./register.module.css"
 
@@ -19,7 +20,7 @@ import styles from "./register.module.css"
 
 export const NoticeRegisterContext = createContext();
 const Register = () => {
-
+    const { t } = useTranslation("register");
     const { login, otpDisplay, load, warn, form,
         handleChange, handleCheck, onSub } = useRegister();
 
@@ -27,7 +28,7 @@ const Register = () => {
     const [element, setElement] = useState("");
     const navigate = useNavigate();
     useEffect(() => {
-        if (login) { 
+        if (login) {
             let time = setTimeout(() => {
                 navigate('/');
             }, 3000)
@@ -51,10 +52,10 @@ const Register = () => {
                                 transform: 'translate(-50%, -50%)',
                                 backgroundColor: 'transparent'
                             }} />
-                            Register
+                            {t("Register")}
                         </h2>
                         <form action="" className={styles['form-contain']} onSubmit={(e) => onSub(e)}>
-                            <h3 className={styles['login']}>Already have an  account? <Link to="/login">Log in</Link></h3>
+                            <h3 className={styles['login']}>{t("Already have an account?")} <Link to="/auth/login">{t("Log in")}</Link></h3>
                             <div className={styles['name']}>
                                 <Input customClass={styles["name"]}
                                     type="text"
@@ -88,7 +89,7 @@ const Register = () => {
                                 warn={warn == 5 ? "* Invalid" : ''}
                             />
                             <ButtonSign load={load} />
-                            <div className={styles['register-title']}>Or register with</div>
+                            <div className={styles['register-title']}>{t("Or register with")}</div>
                             <div className={styles['register']}>
                                 <CustomLoginGoogle />
                                 <CustomApple />

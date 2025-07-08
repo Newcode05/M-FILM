@@ -1,0 +1,45 @@
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.tooltip-container:hover .tooltip {
+    visibility: visible;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: calc(100% + 15px);
+    left: 50%;
+    width: 100px;
+    height: 30px;
+    transform: translate(-50%, 0);
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    animation: move 1s linear 0.1s infinite backwards;
+    visibility: hidden;
+    z-index: 1;
+}
+
+@keyframes move {
+    to {
+        transform: translate(-50%, -10px);
+    }
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}

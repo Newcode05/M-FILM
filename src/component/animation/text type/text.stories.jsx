@@ -1,6 +1,6 @@
 import { TextAnimation } from "./text.jsx";
 export default {
-    title: 'Componenet/Animation/TextAnimation',
+    title: 'Component/Animation/TextAnimation',
     component: TextAnimation
 }
 export const Default = {

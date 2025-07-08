@@ -27,7 +27,7 @@
     transform: translate(-350%, -50%);
     width: 24px;
     height: 24px;
-    background-image: url('/public/Shop/Buy/cart-regular-36.png');
+    background-image: url('/Shop/Buy/cart-regular-36.png');
     background-size: 24px;
     background-position: center;
     background-repeat: no-repeat;
@@ -41,7 +41,7 @@
     transform: translate(-50%, -150%);
     width: 24px;
     height: 24px;
-    background-image: url('/public/Shop/Buy/coupon-solid-36\ \(1\).png');
+    background-image: url('/Shop/Buy/coupon-solid-36\ \(1\).png');
     background-size: 24px;
     background-position: center;
     background-repeat: no-repeat;

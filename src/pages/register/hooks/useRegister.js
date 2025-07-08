@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import { useLogIn } from "../../../../../Providers/Context/LoginContext";
-import { useOtp } from "../../../../../component/otp/hook/useOtp";
-import { useValidate } from "../../../hooks/useForm";
+import { useLogIn } from "../../../Providers/Context/LoginContext";
+import { useOtp } from "../../../component/otp/hook/useOtp";
+import { useValidate } from "../../login/hooks/useForm";
 
 
 /**

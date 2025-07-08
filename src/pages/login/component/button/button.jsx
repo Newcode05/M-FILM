@@ -1,6 +1,9 @@
-import styles from "./button.module.css";
+
 import { Snipper } from "../loading_snipper/snipper";
-export const ButtonSign = ({ type = "sign in", load = true, customStyle, handleClick = () => { } }) => {
+import { useTranslation } from "react-i18next";
+import styles from "./button.module.css";
+export const ButtonSign = ({ type = "register", load = true, customStyle, handleClick = () => { } }) => {
+    const { t } = useTranslation(type);
     return (
         <button
             type="submit"
@@ -9,6 +12,6 @@ export const ButtonSign = ({ type = "sign in", load = true, customStyle, handleC
             onClick={handleClick}
         >
             <Snipper load={load} />
-            {load ? '' : type === "sign in" ? "Create account" : "Log in"}</button>
+            {load ? '' : type === "register" ? t("Create account") : t("Log in")}</button>
     )
 }

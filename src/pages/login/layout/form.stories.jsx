@@ -1,4 +1,4 @@
-import { Register } from "../component/register/register";
+import { Register } from "../../register/register";
 export default {
     'title': 'Component/Login/component/Register',
     'component': Register

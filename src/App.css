@@ -31,16 +31,6 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-:root {
-  --column-count: 2;
-  --column-count-min: 2;
-  --column-count-max: 5;
-  --column-size-min: 100px;
-  --colum-size-max: 250px;
-  --column-gap: 10px;
-
-}
-
 #root {
   box-sizing: border-box;
   width: 100%;

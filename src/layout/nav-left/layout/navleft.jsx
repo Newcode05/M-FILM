@@ -1,5 +1,5 @@
 
-import { useRef,  useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { Logo } from "../../../component/logo/logo";
 import { Card } from "../component/card";
 
@@ -44,7 +44,7 @@ export const NavLeft = () => {
             { src: '/shop', 'element': 'Shop', 'bg': '/Navleft/store-regular-36 (1).png', }
         ],
         [
-            { src: '#', 'element': 'Setting', 'name': 'icon-setting', 'bg': '/Navleft/cog-regular-36.png', },
+            { src: '/setting', 'element': 'Setting', 'name': 'icon-setting', 'bg': '/Navleft/cog-regular-36.png', },
             { src: '#', 'element': 'Trending', 'bg': '/Navleft/compass-regular-36.png', },
         ],
         user.role === 'admin' ?
@@ -57,8 +57,8 @@ export const NavLeft = () => {
         isDevice == "tablet" || isDevice == "mobile" ?
             [
                 !login ?
-                    { src: '/login', 'element': 'Log in', 'bg': '/Header/log-in-regular-36.png' } :
-                    { src: '/login', 'element': 'Log out', 'bg': '/Logout/log-out-regular-36.png' }
+                    { src: '/auth/login', 'element': 'Log in', 'bg': '/Header/log-in-regular-36.png' } :
+                    { src: '/auth/login', 'element': 'Log out', 'bg': '/Logout/log-out-regular-36.png' }
             ] : []
     ];
     const nav = list.filter(arr => arr.length > 0);

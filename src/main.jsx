@@ -8,6 +8,7 @@ import { LoadingProvider } from './Providers/Context/LoadingContext.jsx'
 import { LogInProvider } from './Providers/Context/LoginContext.jsx'
 import { DeviceProvider } from './Providers/Context/DeviceContext.jsx'
 
+import i18n from './i18n/index.js'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>

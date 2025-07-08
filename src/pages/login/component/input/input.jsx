@@ -1,10 +1,12 @@
-
+import React, { forwardRef } from "react";
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 import styles from "./input.module.css"
 
 
-export const Input = ({ type = "text", name = "", warn = "*Invalid", placeholder = "Email", customStyle, customClass, handleChange = () => { } })=> {
+export const Input = forwardRef(({ type = "text", name = "", warn = "*Invalid", placeholder = "Email", customStyle, customClass, handleChange = () => { } }, ref) => {
     const [see, setSee] = useState(false);
+    const { t } = useTranslation(["login", "register"]);
     return (
         type == "checkbox" ?
             <div className={` ${styles['input-default']} ${styles['term']}`} warn={warn}>
@@ -13,7 +15,7 @@ export const Input = ({ type = "text", name = "", warn = "*Invalid", placeholder
                     type="checkbox"
                     name={name}
                     onChange={(e) => handleChange(e)} />
-                I agree to <a href="/"> the Terms&Conditions</a>
+                {t("I agree to", { ns: "register" })}<a href="/"> {t("the Terms&Conditions", { ns: "register" })}</a>
             </div>
             : type == "password" ?
                 <div className={`${styles['input-default']}  ${customClass}`} warn={warn}>
@@ -35,14 +37,15 @@ export const Input = ({ type = "text", name = "", warn = "*Invalid", placeholder
                 </div>
                 : <div className={`${styles['input-default']} ${customClass}`} warn={warn} >
                     <input
+                        ref={ref}
                         style={customStyle}
                         type={type}
                         name={name}
                         warn={warn}
                         className={`${styles['input']} `}
                         onChange={(e) => handleChange(e)}
-                        placeholder={placeholder}
+                        placeholder={t(placeholder, { ns: ["login", "register"] })}
                         required />
                 </div >
     )
-}
+})

@@ -5,7 +5,7 @@ import { useOtpInput } from "./hook/useOtpInput";
 import { useOtp } from "./hook/useOtp";
 import { useAuth } from "../../Providers/Context/AuthContext";
 import { useLogIn } from "../../Providers/Context/LoginContext";
-import { NoticeRegisterContext } from "../../pages/login/component/register/register";
+import { NoticeRegisterContext } from "../../pages/register/register";
 import { Refresh } from "./component/refresh/refresh";
 import styles from "./otp.module.css";
 
