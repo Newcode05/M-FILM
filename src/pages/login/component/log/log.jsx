@@ -10,16 +10,17 @@ import { Logo } from "../../../../component/logo/logo.jsx"
 import { Warn } from "../../../../layout/warn/warn.jsx"
 import { Tooltip } from "../../../../component/tooltip/test/tooltip.jsx"
 
+import { useText } from "../../../../component/animation/text type/hooks/text.js"
 import { useLog } from "./hooks/useLog.js"
 import { useTranslation } from "react-i18next"
 
 import styles from "./log.module.css"
 
 const LogIn = () => {
-
-    const { login, text, load, warn, notice, elementNotice,
-        setElementNotice, setNotice, handleChange, onSub } = useLog();
     const { t } = useTranslation("login");
+    const { text } = useText("Log In");
+    const { login, loading, warn, notice, elementNotice,
+        setElementNotice, setNotice, handleChange, onSub } = useLog();
     return (
         <GoogleOAuthProvider clientId="81447679247-7n1fe6575offt2umqc17h5e02peb6h9u.apps.googleusercontent.com" >
             {notice ? <Warn element={elementNotice} state={login} handleClick={setNotice} /> : null}
@@ -43,7 +44,8 @@ const LogIn = () => {
                                 type="email"
                                 name="email"
                                 placeholder="Email"
-                                warn={warn == 1 ? "* Email is invalid" : ""}
+                                autoComplete="email"
+                                warn={warn == 1 ? t("email_invalid") : ""}
                                 handleChange={handleChange}
                             />
                         </Tooltip>
@@ -51,10 +53,11 @@ const LogIn = () => {
                             type="password"
                             name="password"
                             placeholder="abc@123"
-                            warn={warn == 2 ? "* Password must include at least one [A-Z], one [a-z], [0-9],one special character." : ""}
+                            autoComplete="current-password"
+                            warn={warn == 2 ? t("password_invalid") : ""}
                             handleChange={handleChange}
                         />
-                        <ButtonSign type="login" load={load} />
+                        <ButtonSign type="login" load={loading} />
                         <div className={styles['login-title']}>{t("Or login with")}</div>
                         <div className={styles['login']}>
                             <CustomLoginGoogle setElement={setElementNotice} setNotice={setNotice} />

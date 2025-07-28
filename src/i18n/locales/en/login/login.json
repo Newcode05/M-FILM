@@ -1,0 +1,11 @@
+{
+    "login": "login",
+    "Log in": "Log in",
+    "Don't have account?": "Don't have account?",
+    "Register": "Register",
+    "Forgot Password ?": "Forgot Password ?",
+    "Or login with": "Or login with",
+    "email_invalid": "* Email is invalid",
+    "password_invalid": "* Password must include at least one [A-Z], one [a-z], [0-9],one special character.",
+    "repassword_invalid": "* Password and confirmation must be identical."
+}

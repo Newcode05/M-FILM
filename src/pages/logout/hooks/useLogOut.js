@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { intance } from "../../../Providers/axiosClient"
+import { instance } from "../../../Providers/axiosClient"
 
 export const useLogOut = () => {
     const [logOutState, setLogOutState] = useState(false);
     const logOut = (user) => {
-        intance.post("/logout")
+        instance.post("/logout")
             .then(res => {
                 if (res.data.message === "success") setLogOutState(true);
 

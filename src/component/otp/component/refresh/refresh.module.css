@@ -50,3 +50,7 @@
     vertical-align: middle;
     align-items: center;
 }
+
+.warn {
+    color: white;
+}

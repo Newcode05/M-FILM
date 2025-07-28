@@ -32,7 +32,6 @@ export const useOtpInput = (count = 6) => {
 
     const handleKeyDown = (e, index) => {
         if (warnOtp) setWarnOtp(false);
-        console.log('a');
         if (e.key === "Backspace" && index > 0 && !otp[index]) {
             inputRef.current[index - 1]?.focus();
         }

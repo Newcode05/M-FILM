@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
-
-import { intance } from './Providers/axiosClient.jsx'
+import { instance } from './Providers/axiosClient.jsx'
 
 import { useAuth } from './Providers/Context/AuthContext.jsx'
 import { useLogIn } from './Providers/Context/LoginContext.jsx'
@@ -19,7 +18,7 @@ export const App = () => {
   const { setIsDevice } = useDevice();
 
   useEffect(() => {
-    intance.post('/login')
+    instance.post('/login')
       .then(res => {
         if (res.data['message'] === 'success') {
           const { user } = res.data;
@@ -76,6 +75,7 @@ export const App = () => {
     return () => window.removeEventListener('resize', windowSize);
   }, []);
   return (
+
     <DisplayNavProvider>
       <AppRoute />
     </DisplayNavProvider>

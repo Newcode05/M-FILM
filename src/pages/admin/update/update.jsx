@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ListVideo } from "./component/list/listvideo";
-import { intance } from "../../../Providers/axiosClient";
+import { instance } from "../../../Providers/axiosClient";
 import styles from "./update.module.css"
 import { set } from "lodash";
 
@@ -12,7 +12,7 @@ function Update() {
             'limit': '2',
             'offset': '0'
         }
-        intance.post('/getVideoUp', req)
+        instance.post('/getVideoUp', req)
             .then(res => {
                 if (res.data['message'] === 'success') {
                     setVideo(res.data.videos)

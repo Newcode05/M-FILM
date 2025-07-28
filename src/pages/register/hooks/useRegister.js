@@ -1,10 +1,11 @@
 import { useState } from "react";
 
 import { useLogIn } from "../../../Providers/Context/LoginContext";
-import { useOtp } from "../../../component/otp/hook/useOtp";
+import { useOtp } from "../../../component/otp/hooks/useOtp";
 import { useValidate } from "../../login/hooks/useForm";
 
 
+import { useGetOtpMutation } from "../../../component/otp/services/useOtpService";
 /**
  * 
  * @returns {
@@ -18,10 +19,9 @@ import { useValidate } from "../../login/hooks/useForm";
 export const useRegister = () => {
 
     const { login } = useLogIn();
-    const { getOtp } = useOtp();
     const { checkRegister } = useValidate();
+
     const [otpDisplay, setOtpDisplay] = useState(false);
-    const [load, setLoad] = useState(false);
     const [warn, setWarn] = useState(null);
     const [form, setForm] = useState({
         'firstname': '',
@@ -31,40 +31,34 @@ export const useRegister = () => {
         'term': '',
         'type': 'local'
     });
+    const mutationGetOtp = useGetOtpMutation({
+        options: {
+            onSuccess: (data) => {
+                if (data['status'] === 'success') {
+                    sessionStorage.setItem('timeOtp', data['time']);
+                    setOtpDisplay(true);
+                }
+            },
+            onError: (err) => {
+                setWarn(6);
+            }
+        }
+    });
+    const loading = mutationGetOtp.isPending;
 
     const handleChange = (e) => {
         if (warn != null) setWarn(null);
         setForm(prev => ({ ...prev, [e.target.name]: e.target.value.trim() }));
     }
+
     const handleCheck = (e) => setForm(prev => ({ ...prev, [e.target.name]: e.target.checked }));
 
     const onSub = (e) => {
         e.preventDefault();
-        setLoad(true);
         if (!checkRegister(form, setWarn)) {
-            setLoad(false);
             return;
         }
-        const data = {
-            ...form
-        }
-        const response = getOtp("/register/getOtp", data);
-        response.then(res => {
-            setLoad(false);
-            if (res.data['status'] === 'success') {
-                sessionStorage.setItem('timeOtp', res.data['time']);
-                setOtpDisplay(true);
-            }
-            else {
-                setWarn(6);
-                setLoad(false);
-            }
-        }).catch(err => {
-            setLoad(false);
-            setWarn(6);
-        })
-
-
+        mutationGetOtp.mutate({ url: "/register/getOtp", data: { ...form } });
     }
-    return { load, login, warn, form, otpDisplay, handleChange, handleCheck, onSub }
+    return { loading, login, warn, form, otpDisplay, handleChange, handleCheck, onSub }
 }

@@ -1,10 +1,10 @@
-import { intance } from "../../../../Providers/axiosClient"
+import { instance } from "../../../Providers/axiosClient"
 const useForget = () => {
     const fetchStep = (token) => {
         const data = {
             'token': token
         }
-        return intance.post('/forgot-password/step', data);
+        return instance.post('/forgot-password/step', data);
     }
     return { fetchStep }
 }

@@ -4,14 +4,14 @@ import { useGoogleLogin } from "@react-oauth/google";
 import { useLogIn } from "../../../../Providers/Context/LoginContext";
 import { useAuth } from "../../../../Providers/Context/AuthContext";
 
-import { intance } from "../../../../Providers/axiosClient";
+import { instance } from "../../../../Providers/axiosClient";
 import styles from "./google.module.css"
 
 export const CustomLoginGoogle = ({ setElement = () => { }, setNotice = () => { } }) => {
     const { setLogin } = useLogIn();
     const { setUser } = useAuth();
     const sendUser = (user) => {
-        intance.post('/api/login/auth', user)
+        instance.post('/api/login/auth', user)
             .then(res => {
                 console.log(res);
                 setNotice(true);

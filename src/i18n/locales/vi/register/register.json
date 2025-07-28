@@ -1,0 +1,17 @@
+{
+    "Register": "Đăng ký",
+    "Log in": "Đăng nhập",
+    "Already have an account?": "Đã có tài khoản ?",
+    "First Name": "Họ",
+    "Last Name": "Tên",
+    "I agree to": "Tôi đồng ý với",
+    "the Terms&Conditions": "Điều khoản và dịch vụ",
+    "Create account": "Tạo tài khoản",
+    "Or register with": "Hoặc đăng ký với",
+    "firstname_invalid": "* Họ không hợp lệ",
+    "lastname_invalid": "* Tên không hợp lệ",
+    "email_invalid": "* Email không hợp lệ",
+    "email_exists": "* Email đã tồn tại",
+    "password_invalid": "* Mật khẩu phải chứa ít nhất 1 kí tự A->Z, 1 kí tự từ a->z, chứa số và 1 kí tự đặc biệt",
+    "checkbox_invalid": "* Không hợp lệ"
+}

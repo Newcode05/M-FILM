@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useValidate } from "../../../../login/hooks/useForm";
-import { intance } from "../../../../../Providers/axiosClient";
+import { instance } from "../../../../../Providers/axiosClient";
+import { useTranslation } from "react-i18next";
 export const usePasswordStep = () => {
+    const { t } = useTranslation("login");
     const { checkPassword } = useValidate();
     const [loading, setLoading] = useState(false);
     const [warnPass, setWarnPass] = useState("");
@@ -10,44 +12,42 @@ export const usePasswordStep = () => {
         'password': '',
         're-password': ''
     });
-    const elWarn = "* Password must include at least one [A-Z], one [a-z], [0-9],one special character.";
-    const reWarn = "* Password and confirmation must be identical";
-    useEffect(() => { console.log(form); console.log(warnPass) }, [form]);
-    useEffect(() => {
-        console.log(warnPass, warnResPassword);
-    }, [warnPass]);
-    const validatePassword = (password) => {
+    const elWarn = t("password_invalid");
+    const reWarn = t("repassword_invalid");
 
-        if (!checkPassword(password)) {
-            setWarnPass('* Password must include at least one [A-Z], one [a-z], [0-9],one special character.');
-            return false;
-        }
-        return true;
-    }
+    useEffect(() => { console.log(form); console.log(warnPass) }, [form]);
+
+    useEffect(() => {
+        console.log("1");
+    }, [warnPass]);
+
     const validateResPassword = (pass, repass) => {
         if (pass !== repass) {
             return false;
         }
         return true;
     }
-    const handleChangePass = (e) => {
-        setWarnPass('');
+
+    const handleChangePass = useCallback((e) => {
+        setWarnPass("");
         const { name, value } = e.target;
-        if (!validatePassword(value)) setWarnPass(elWarn);
+        if (!checkPassword(value) && value.length > 0) setWarnPass(elWarn);
+        else setWarnPass("");
         setForm(form => {
             return ({ ...form, [name]: value });
         });
-    }
-    const handleChangeResPass = (e) => {
+    }, [])
+
+    const handleChangeResPass = useCallback((e) => {
         setWarnResPassword('');
         const { name, value } = e.target;
         if (!validateResPassword(form['password'], e.target.value)) setWarnResPassword(reWarn);
         setForm(form => {
             return ({ ...form, [name]: value });
         })
-    }
+    }, [])
 
-    const onSub = (e, token) => {
+    const onSub = useCallback((e, token) => {
         e.preventDefault();
 
         setLoading(true);
@@ -60,7 +60,7 @@ export const usePasswordStep = () => {
             const data = {
                 ...form, 'token': token
             }
-            intance.post('/forgot-password/password', data)
+            instance.post('/forgotpassword/changepassword', data)
                 .then(res => {
                     setLoading(false);
                     if (res.data.status === 'success') {
@@ -77,6 +77,7 @@ export const usePasswordStep = () => {
                     }
                 })
         }
-    };
+    }, []);
+
     return { warnPass, warnResPassword, loading, handleChangePass, handleChangeResPass, onSub }
 }

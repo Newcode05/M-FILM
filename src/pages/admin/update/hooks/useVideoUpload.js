@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { intance } from "../../../../Providers/axiosClient"
+import { instance } from "../../../../Providers/axiosClient"
 export const useVideoUpload = () => {
     const [value, setValue] = useState({
         'title': '',
@@ -9,7 +9,7 @@ export const useVideoUpload = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = new FormData(e.target);
-        intance.get('/upload')
+        instance.get('/upload')
             .then(res => {
                 if (res.data['upload_status'] === "success") {
                 }

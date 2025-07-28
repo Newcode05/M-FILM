@@ -12,11 +12,11 @@ export const ForgotPasswordRoute = {
             element: <EmailStep />
         },
         {
-            path: "otp/:token/:email",
+            path: "otp/:email",
             element: <OtpStep />
         },
         {
-            path: "password/:token/:email",
+            path: "password/:email/:token",
             element: <PasswordStep />
         }
     ]

@@ -21,7 +21,7 @@ import styles from "./register.module.css"
 export const NoticeRegisterContext = createContext();
 const Register = () => {
     const { t } = useTranslation("register");
-    const { login, otpDisplay, load, warn, form,
+    const { login, otpDisplay, loading, warn, form,
         handleChange, handleCheck, onSub } = useRegister();
 
     const [notice, setNotice] = useState(false);
@@ -41,7 +41,12 @@ const Register = () => {
             <GoogleOAuthProvider clientId="81447679247-7n1fe6575offt2umqc17h5e02peb6h9u.apps.googleusercontent.com">
                 {notice ? <Warn element={element} titleSuccess="Register Success" titleFail="Register Fail"
                     state={login} handleClick={setNotice} /> : null}
-                {otpDisplay ? <Otp data={form} /> : null}
+                {otpDisplay ?
+                    <Otp
+                        data={form}
+                        getOtp={{ url: "/register/getOtp", data: { ...form } }}
+                        verifyOtp={{ url: "/register/verifyOtp/user" }} />
+                    : null}
                 <div className={styles['container']}>
                     <div className={styles['contain']}>
                         <h2 className={styles['title']}>
@@ -61,34 +66,38 @@ const Register = () => {
                                     type="text"
                                     name="firstname"
                                     placeholder="First Name"
+                                    autoComplete="given-name"
                                     handleChange={handleChange}
-                                    warn={warn == 0 ? "* Firstname is invalid" : ""} />
+                                    warn={warn === 1 ? t("firstname_invalid") : ""} />
                                 <Input customClass={styles["name"]}
                                     type="text"
                                     name="lastname"
                                     placeholder="Last Name"
+                                    autoComplete="family-name"
                                     handleChange={handleChange}
-                                    warn={warn == 1 ? "* Lastname is invalid" : ""} />
+                                    warn={warn === 2 ? t("lastname_invalid") : ""} />
                             </div>
                             <Input
                                 type="email"
                                 name="email"
                                 placeholder="example@gmail.com"
+                                autoComplete="email"
                                 handleChange={handleChange}
-                                warn={warn == 3 ? "* Email is invalid" : warn == 6 ? "* Email đã tồn tại" : ""} />
+                                warn={warn === 3 ? t("email_invalid") : warn == 6 ? t("email_exists") : ""} />
                             <Input
                                 type="password"
                                 name="password"
                                 placeholder="abc@123"
+                                autoComplete="new-password"
                                 handleChange={handleChange}
-                                warn={warn == 4 ? "* Password must include at least one [A-Z], one [a-z], [0-9],one special character." : ""} />
+                                warn={warn === 4 ? t("password_invalid") : ""} />
                             <Input
                                 type="checkbox"
                                 name="term"
                                 handleChange={handleCheck}
-                                warn={warn == 5 ? "* Invalid" : ''}
+                                warn={warn === 5 ? t("checkbox_invalid") : ""}
                             />
-                            <ButtonSign load={load} />
+                            <ButtonSign load={loading} />
                             <div className={styles['register-title']}>{t("Or register with")}</div>
                             <div className={styles['register']}>
                                 <CustomLoginGoogle />

@@ -1,5 +1,11 @@
 import styles from "./refresh.module.css"
-const Refresh = ({ refresh, time, warn, handleRefresh = () => { } }) => {
+
+
+const Refresh = ({
+    refresh = false,
+    time = {},
+    warn = "",
+    handleRefresh = () => { } }) => {
     return (
         <div className={styles['time-refresh']}>
             <img className={`${styles['refresh']} ${refresh ? styles['refresh-ani'] : ""}`}
@@ -11,4 +17,4 @@ const Refresh = ({ refresh, time, warn, handleRefresh = () => { } }) => {
         </div>
     )
 }
-export { Refresh }
+export { Refresh } 

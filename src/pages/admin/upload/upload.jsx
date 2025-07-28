@@ -3,7 +3,7 @@ import { Snipper } from '../../../pages/login/component/loading_snipper/snipper'
 import { useLoading } from '../../../Providers/Context/LoadingContext';
 import { useAuth } from '../../../Providers/Context/AuthContext';
 import { Sort } from '../../../layout/header/component/sort/sort';
-import { intance } from '../../../Providers/axiosClient';
+import { instance } from '../../../Providers/axiosClient';
 import styles from './upload.module.css';
 function Upload() {
     const { user } = useAuth();
@@ -28,7 +28,7 @@ function Upload() {
         const formData = new FormData(e.target);
         formData.append('type', type);
         formData.append('duration', duration);
-        intance.post(('/api/upload'), formData)
+        instance.post(('/api/upload'), formData)
             .then(res => {
                 setLoad(false);
                 if (res.data.message = "success") {

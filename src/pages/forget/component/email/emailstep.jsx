@@ -3,10 +3,12 @@ import { InderLoading } from "../../../../component/inderteminate loading/inder"
 import { Input } from "../../../login/component/input/input"
 import { Next } from "../next/next"
 import { useEmailStep } from "./hooks/useEmailStep"
+
 import styles from "./emailstep.module.css"
 
 const EmailStep = () => {
     const { warn, loading, onSub, handleChange } = useEmailStep();
+    console.log(loading);
     return (
         <form className={styles['email-step']} onSubmit={(e) => onSub(e)}>
             <InderLoading loading={loading} />

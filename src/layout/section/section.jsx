@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { CardFilm } from "../../component/card/cardfilm";
 import { Scroll } from "../../component/scroll/scroll";
-import { intance } from "../../Providers/axiosClient";
+import { instance } from "../../Providers/axiosClient";
 import styles from "./section.module.css"
 function Section() {
     const [list, setList] = useState([]);
@@ -16,7 +16,7 @@ function Section() {
 
     ]*/
     useEffect(() => {
-        intance.get(`/api/getVideo/type?Dramatic`)
+        instance.get(`/api/getVideo/type?Dramatic`)
             .then((res) => {
                 if (res.data.message === 'success') {
                     const { data } = res.data;

@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { Watching } from "../component/watching/watching";
 import { DescriptionMovie } from "../component/discription/description";
 import { useLoading } from "../../../Providers/Context/LoadingContext";
-import { intance } from "../../../Providers/axiosClient";
+import { instance } from "../../../Providers/axiosClient";
 import styles from "./watchinglayout.module.css";
 
 function WatchingLayout() {
@@ -28,7 +28,7 @@ function WatchingLayout() {
         console.log(video);
     }, [video]);
     useEffect(() => {
-        intance.get(`/api/getVideo/${videoID}`)
+        instance.get(`/api/getVideo/${videoID}`)
             .then(res => {
                 setLoad(false);
                 const { video } = res.data;

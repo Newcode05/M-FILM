@@ -2,11 +2,11 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 const APP_URL = `http://${window.location.hostname}:8000`;
-const intance = axios.create({
+const instance = axios.create({
     baseURL: APP_URL,
     withCredentials: true
 })
-intance.interceptors.request.use(
+instance.interceptors.request.use(
     async (config) => {
         let token = Cookies.get('XSRF-TOKEN');
         if (!token) {
@@ -29,7 +29,7 @@ intance.interceptors.request.use(
     }, (err) => {
         return Promise.reject(err);
     });
-intance.interceptors.response.use((response) => {
+instance.interceptors.response.use((response) => {
     return response;
 }, async (err) => {
     if (err.response.status === 419) {
@@ -42,7 +42,7 @@ intance.interceptors.response.use((response) => {
             let token = Cookies.get('XSRF-TOKEN');
             newConfig.headers['X-XSRF-TOKEN'] = token;
             newConfig.withCredentials = true;
-            return intance(newConfig);
+            return instance(newConfig);
         }
         catch (err) {
             return Promise.reject('Error');
@@ -55,4 +55,4 @@ intance.interceptors.response.use((response) => {
     }
 
 })
-export { intance }
+export { instance }

@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import { ResultCard } from "../result_card/resultcard";
 import { useLoading } from "../../../../Providers/Context/LoadingContext";
-import { intance } from "../../../../Providers/axiosClient";
+import { instance } from "../../../../Providers/axiosClient";
 import styles from "./listresult.module.css"
 const Result = () => {
     const { loading } = useLoading();
@@ -17,7 +17,7 @@ const Result = () => {
         console.log(videos);
     }, [videos])
     useEffect(() => {
-        intance.get(`api/getVideoBy?q=${search}&g=${genre}`)
+        instance.get(`api/getVideoBy?q=${search}&g=${genre}`)
             .then(res => {
                 setLoad(false);
                 console.log(res);

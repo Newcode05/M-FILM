@@ -4,7 +4,21 @@ import { useTranslation } from "react-i18next"
 import styles from "./input.module.css"
 
 
-export const Input = forwardRef(({ type = "text", name = "", warn = "*Invalid", placeholder = "Email", customStyle, customClass, handleChange = () => { } }, ref) => {
+export const Input = forwardRef((
+    {
+        type = "text",
+        name = "",
+        autoComplete = "auto",
+        warn = "*Invalid",
+        placeholder = "Email",
+        valueInitial = "",
+        hidden = false,
+        readOnly = false,
+        customStyle = {},
+        customClass = "",
+        handleChange = () => { }
+    }, ref) => {
+    const [value, setValue] = useState(valueInitial);
     const [see, setSee] = useState(false);
     const { t } = useTranslation(["login", "register"]);
     return (
@@ -21,13 +35,16 @@ export const Input = forwardRef(({ type = "text", name = "", warn = "*Invalid", 
                 <div className={`${styles['input-default']}  ${customClass}`} warn={warn}>
                     <input
                         style={customStyle}
+                        className={`${styles['input']} ${styles['input-password']} `}
                         type={see ? "text" : "password"}
                         name={name}
                         warn={warn}
-                        className={`${styles['input']} ${styles['input-password']} `}
-                        onChange={(e) => handleChange(e)}
+                        value={value}
+                        onChange={(e) => { handleChange(e), setValue(e.target.value) }}
                         placeholder={placeholder}
-                        autoComplete="new-password"
+                        autoComplete={autoComplete}
+                        hidden={hidden}
+                        readOnly={readOnly}
                         required />
                     <div
                         style={{ backgroundImage: `url(${see ? '/Login/Form/eye.png' : '/Login/Form/eye-closed.png'})` }}
@@ -42,9 +59,13 @@ export const Input = forwardRef(({ type = "text", name = "", warn = "*Invalid", 
                         type={type}
                         name={name}
                         warn={warn}
+                        value={value}
                         className={`${styles['input']} `}
-                        onChange={(e) => handleChange(e)}
+                        onChange={(e) => { handleChange(e), setValue(e.target.value) }}
                         placeholder={t(placeholder, { ns: ["login", "register"] })}
+                        autoComplete={autoComplete}
+                        hidden={hidden}
+                        readOnly={readOnly}
                         required />
                 </div >
     )
