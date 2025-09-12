@@ -1,0 +1,9 @@
+{
+    "form": {
+        "firstname": "Nhập vào họ của bạn",
+        "lastname": "Nhập vào tên của bạn",
+        "email": "Nhập vào email",
+        "password": "Nhập vào mật khẩu"
+    },
+    "register": {}
+}

@@ -1,0 +1,261 @@
+.upload-contain {
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    font-size: 1.5rem;
+    gap: 20px;
+}
+
+.form-video {
+    box-sizing: border-box;
+    position: relative;
+    flex: none;
+    width: calc(100% - 420px);
+    height: auto;
+    object-fit: cover;
+}
+
+.poster {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+}
+
+.poster>div {
+    max-height: 100%;
+}
+
+.poster-hor {
+    box-sizing: border-box;
+    height: 250px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.poster-ver {
+    box-sizing: border-box;
+    display: block;
+    height: 250px;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.video-pre {
+    box-sizing: border-box;
+    position: relative;
+    max-height: 100%;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/*Form thông tin*/
+.form-upload {
+    box-sizing: border-box;
+    flex: 0 0 400px;
+    width: auto;
+    min-width: 300px;
+    max-width: 400px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-upload input[type="text"] {
+    box-sizing: border-box;
+    padding-left: 5px;
+    height: 40px;
+    width: 100%;
+    max-width: 400px;
+    border: none;
+    outline: none;
+    background-color: rgba(59, 53, 75, 1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    color: white;
+}
+
+.form-upload input::placeholder {
+    color: gray;
+}
+
+.form-upload input[type="text"]:focus {
+    outline: 2px solid rgb(159, 108, 226);
+}
+
+.form-upload>div {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/**/
+.form-type {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.file-label {
+    box-sizing: border-box;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid white;
+    cursor: pointer;
+
+}
+
+.file {
+    display: none;
+}
+
+.file-label,
+.button-upload {
+    width: 100%;
+}
+
+.form-poster {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.sort {
+    width: 100%;
+}
+
+.file-poster-hor,
+.file-poster-ver {
+    box-sizing: border-box;
+    padding: 8px 10px;
+    font-size: 1em;
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+/*Description*/
+.description {
+    box-sizing: border-box;
+    width: 100%;
+    aspect-ratio: 16/9;
+    height: auto;
+    min-width: 300px;
+    max-width: 400px;
+    min-height: 100px;
+    max-height: 300px;
+    border-radius: 5px;
+    outline: none;
+    background-color: rgba(59, 53, 75, 1);
+    resize: none;
+    color: white;
+    font-family: "Roboto", sans-serif;
+}
+
+div.categories-content {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+    width: 100%;
+}
+
+.categories-content label {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.categories-content input {
+    height: 15px;
+    width: 15px;
+}
+
+.button-upload {
+    box-sizing: border-box;
+    border: none;
+    height: 40px;
+    border: 1px solid rgba(181, 271, 36, 1);
+    background-color: transparent;
+    color: white;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+@media (max-width:1024px) {
+    .form-upload {
+        flex: 0 0 300px;
+    }
+
+    .form-video {
+        flex: 1 1 0;
+    }
+
+}
+
+@media (max-width:780px) {
+    .upload-contain {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-video {
+        width: 100%;
+    }
+
+    .form-upload {
+        max-width: 100%;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .form-title {
+        flex: 0 0 calc((100% - 20px)/2);
+    }
+
+    .form-description {
+        flex: 0 0 calc((100% - 20px)/2);
+    }
+
+    .form-type {
+        flex: 0 0 100%;
+    }
+
+    .form-categories {
+        flex: 0 0 100%;
+    }
+
+    .file-upload {
+        width: 100%;
+    }
+
+}
+
+@media (max-width:480px) {
+    .form-video {
+        width: 100%;
+    }
+}

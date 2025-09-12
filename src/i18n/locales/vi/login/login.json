@@ -1,0 +1,10 @@
+{
+    "login": "Đăng nhập",
+    "Log in": "Đăng nhập",
+    "Don't have account?": "Không có tài khoản?",
+    "Register": "Đăng ký",
+    "Forgot Password ?": "Quên mật khẩu ?",
+    "Or login with": "Hoặc đăng nhập với",
+    "password_invalid": "* Mật khẩu phải chứa ít nhất 1 kí tự A->Z, 1 kí tự từ a->z, chứa số và 1 kí tự đặc biệt",
+    "repassword_invalid": "* Mật khẩu và xác nhận phải giống nhau"
+}

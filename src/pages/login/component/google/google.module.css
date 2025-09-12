@@ -1,0 +1,27 @@
+.button-google {
+    box-sizing: border-box;
+    flex: 0 0 calc((100% - 20px)/2);
+    min-width: 120px;
+    height: 40px;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.2rem;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.button-google::before {
+    content: "";
+    width: 24px;
+    height: 24px;
+    background-image: url("/Login/search.png");
+    background-size: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+}

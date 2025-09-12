@@ -1,0 +1,59 @@
+.trending-card {
+    box-sizing: border-box;
+    position: relative;
+    flex: 0 0 200px;
+    aspect-ratio: 3/4;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.poster {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.medal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    transform: rotate(-30deg);
+    transform-origin: 50% 0px;
+    animation: rotation 2s linear 1s infinite alternate forwards;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(-30deg);
+    }
+
+    to {
+        transform: rotate(30deg);
+    }
+}
+
+.top {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: white;
+    animation: scale 1s linear 1s infinite forwards;
+}
+
+@keyframes scale {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.2);
+    }
+
+}

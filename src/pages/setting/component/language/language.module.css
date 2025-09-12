@@ -1,0 +1,35 @@
+.language-container {
+    position: relative;
+    padding: 0px;
+    padding-left: 10px;
+    margin: 0;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    background-color: rgba(100, 100, 100, 0.5);
+    backdrop-filter: blur(10px);
+
+}
+
+.language-button {
+    color: white;
+    font-size: 1.3em;
+}
+
+.language-list {
+    flex: 0 0 100px;
+    height: 100%;
+    font-size: 1em;
+    border: none;
+
+    color: white;
+
+}
+
+.language-list:focus {
+    outline: none;
+}

@@ -1,0 +1,49 @@
+.otp-list {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.otp-input {
+    height: 40px;
+    width: 40px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 2em;
+    color: white;
+    background-color: rgba(59, 53, 75, 1);
+}
+
+.otp-input:focus {
+    outline: 2px solid rgb(159, 108, 226);
+}
+
+/*animation*/
+.input-stroke {
+    animation: stroke 1s linear 1 normal forwards;
+}
+
+@keyframes stroke {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    25% {
+        transform: rotateZ(10deg);
+    }
+
+    50% {
+        transform: rotateZ(-15deg);
+    }
+
+    75% {
+        transform: rotateZ(10deg);
+    }
+
+    100% {
+        transform: rotateZ(0deg);
+    }
+
+}

@@ -1,0 +1,40 @@
+.trailer-contain {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    height: auto;
+    max-height: calc(100vh - 80px);
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.trailer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 20;
+}
+
+.poster {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 20;
+}
+
+@media (max-width:480px) {
+    .trailer-contain {
+        aspect-ratio: 4/3;
+        height: auto;
+    }
+}

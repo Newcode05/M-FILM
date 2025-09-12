@@ -1,92 +1,84 @@
-import { createContext, useContext, useEffect, useState } from 'react'
-import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom'
-import { Header } from './header/layout/head/header'
-import { Logo } from './component/logo/logo'
-import { Home } from './layout/home/home'
-import { Shop } from './shop/layout/shop'
-import { NavLeft } from './nav-left/layout/navleft'
-import { Login } from './Login/component/login/login.jsx'
-import { WatchingLayout } from './watch/layout/watchinglayout'
-import { Footer } from './layout/footer/layout/footer.jsx'
-import './App.css'
-import { Loading } from './loading/loading.jsx'
-function LoginLayout() {
-  return (
-    <>
-      <main className="login-main">
-        <Outlet />
-      </main>
-    </>
-  )
-}
-function Layout() {
-  const { loading } = useContext(LoadingContext);
-  const { displayNav, setDisplayNav } = useContext(DisplayNavContext);
-  const { isDesktop } = useContext(DesktopContext);
-  const homeStyle = isDesktop ? {
-    width: displayNav ? 'calc(100% - 300px)' : 'calc(100% - 25px)',
-    left: displayNav ? '300px' : '25px'
-  } : {
-    width: 'calc(100% - 25px)',
-    left: '25px'
-  };
-  return (
-    <>
-      {!displayNav ?
-        <Logo customStyle={{ position: 'fixed', top: '20px', left: '25px' }} handleClick={() => setDisplayNav(prev => !prev)} /> : null}
-      <Header />
-      <NavLeft />
-      <Loading />
-      {loading ? null :
-        <main style={{ ...homeStyle }}>
-          <Outlet />
-          <Footer />
-        </main>
-      }
+import { useEffect } from 'react'
+import { instance } from './Providers/axiosClient.jsx'
 
-    </>
-  )
-}
-export const loginContext = createContext(null);
-export const DisplayNavContext = createContext(null);
-export const DesktopContext = createContext(null);
-export const LoadingContext = createContext(null);
-function App() {
-  const [loading, setLoading] = useState(true);
-  const [login, setLogin] = useState();
-  const [displayNav, setDisplayNav] = useState(true);
-  const [isDesktop, setIsDesktop] = useState(null);
+import { useAuth } from './Providers/Context/AuthContext.jsx'
+import { useLogIn } from './Providers/Context/LoginContext.jsx'
+import { useDevice } from './Providers/Context/DeviceContext.jsx'
+
+import { DisplayNavProvider } from './Providers/Context/DisplayNavContext.jsx'
+
+import { AppRoute } from '../routes/AppRoutes.jsx'
+
+import './App.css'
+
+
+export const App = () => {
+  const { setUser } = useAuth();
+  const { setLogin } = useLogIn();
+  const { setIsDevice } = useDevice();
+
   useEffect(() => {
-    setIsDesktop(window.innerWidth >= 1500);
+    instance.post('/login')
+      .then(res => {
+        if (res.data['message'] === 'success') {
+          const { user } = res.data;
+          setLogin(true);
+          setUser({
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            role: user.role
+          });
+        }
+        else {
+          setUser({
+            id: null,
+            name: '',
+            email: '',
+            role: ''
+          });
+        }
+      }).catch(err => {
+        console.error(err);
+      })
+
+  }, []);
+  useEffect(() => {
+    setIsDevice(
+      prev => {
+        if (window.innerWidth >= 1500) {
+          return "desktop";
+        }
+        else if (window.innerWidth > 480 && window.innerWidth < 1500) {
+          return "tablet";
+        }
+        else if (window.innerWidth <= 480) {
+          return "mobile";
+        }
+      });
     const windowSize = () => {
-      setIsDesktop(window.innerWidth >= 1500);
+      setIsDevice(
+        prev => {
+          if (window.innerWidth >= 1500) {
+            return "desktop";
+          }
+          else if (window.innerWidth > 480 && window.innerWidth < 1500) {
+            return "tablet";
+          }
+          else if (window.innerWidth <= 480) {
+            return "mobile";
+          }
+        }
+      );
     }
-    console.log(window.innerWidth);
     window.addEventListener('resize', windowSize);
     return () => window.removeEventListener('resize', windowSize);
-  }, [])
+  }, []);
   return (
-    <LoadingContext.Provider value={{ loading, setLoading }}>
-      <loginContext.Provider value={{ login, setLogin }}>
-        <DesktopContext.Provider value={{ isDesktop, setIsDesktop }}>
-          <DisplayNavContext.Provider value={{ displayNav, setDisplayNav }}>
-            <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<Layout />}>
-                  <Route index element={<Home />} />
-                  <Route path="shop" element={<Shop />} />
-                  <Route path="/watch" element={<WatchingLayout />} />
-                </Route>
-                <Route path="/login" element={<LoginLayout />}>
-                  <Route index element={<Login />} />
-                </Route>
-              </Routes>
-            </BrowserRouter>
-          </DisplayNavContext.Provider>
-        </DesktopContext.Provider>
-      </loginContext.Provider>
-    </LoadingContext.Provider>
+
+    <DisplayNavProvider>
+      <AppRoute />
+    </DisplayNavProvider>
   )
 }
 
-export default App

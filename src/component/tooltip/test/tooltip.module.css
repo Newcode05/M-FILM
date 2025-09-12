@@ -1,0 +1,46 @@
+.arrow {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 12px;
+    height: 6px;
+    pointer-events: none;
+}
+
+.arrow>svg {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+/* Tooltip ở trên => arrow dưới */
+[data-popper-placement^="top"]>.arrow {
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Tooltip ở dưới => arrow trên */
+[data-popper-placement^="bottom"]>.arrow {
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+}
+
+/* Tooltip trái => arrow bên phải */
+[data-popper-placement^="left"]>.arrow {
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+}
+
+/* Tooltip phải => arrow bên trái */
+[data-popper-placement^="right"]>.arrow {
+    left: -6px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+}

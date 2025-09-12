@@ -1,0 +1,11 @@
+{
+    "form": {
+        "firstname": "This is firstname",
+        "lastname": "This is lastname",
+        "email": "This is email",
+        "password": "This is password"
+    },
+    "register": {
+        
+    }
+}

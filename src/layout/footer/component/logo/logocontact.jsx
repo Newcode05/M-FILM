@@ -5,7 +5,7 @@ function LogoContact() {
     return (
         <div className={styles['logo-contain']}>
             <div className={styles['logo']}>
-                <Logo />
+                <Logo customClass={styles['responsive']} />
                 <h2 className={styles['name']}>M FILM</h2>
             </div>
             <div className={styles['logo-infor']}>

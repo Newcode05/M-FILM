@@ -1,0 +1,11 @@
+.warn-otp {
+    margin-top: 10px;
+    height: 15px;
+    width: 290px;
+    color: white;
+    font-size: 1.1em;
+}
+
+.warn-otp>span {
+    color: red;
+}
